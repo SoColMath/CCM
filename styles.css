@@ -250,9 +250,13 @@ a {
 .hero-content {
   position: relative;
   z-index: 2;
+  width: 100%;
   max-width: 920px;
   margin: 0 auto;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero-badge,
@@ -298,17 +302,20 @@ a {
 .hero-title {
   margin: 0 auto 1.35rem;
   max-width: 980px;
+  width: 100%;
   color: var(--foreground);
   font-size: clamp(2.55rem, 7vw, 5.6rem);
   font-weight: 900;
   line-height: 0.96;
   letter-spacing: -0.065em;
   text-wrap: balance;
+  text-align: center;
   animation: fadeInUp 0.7s ease 0.14s both;
 }
 
 .hero-title-accent {
   display: block;
+  text-align: center;
   color: transparent;
   background: linear-gradient(90deg, var(--primary), #F0A451 55%, var(--primary-dark));
   -webkit-background-clip: text;
