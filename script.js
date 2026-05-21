@@ -6,7 +6,6 @@
 // Fecha objetivo del congreso
 const CONGRESS_DATE = new Date("2027-06-08T08:00:00").getTime();
 
-
 // ======================================================
 // Cuenta regresiva
 // ======================================================
@@ -51,10 +50,8 @@ function initCountdown() {
   setInterval(updateCountdown, 1000);
 }
 
-
 // ======================================================
-// Sistema de pestañas principales
-// Compatible con id="registro" y con id="tab-registro"
+// Sistema de pestañas
 // ======================================================
 function initTabs() {
   const tabButtons = document.querySelectorAll(".tab-btn");
@@ -62,18 +59,7 @@ function initTabs() {
 
   if (!tabButtons.length || !tabContents.length) return;
 
-  function getTabContent(tabName) {
-    return (
-      document.getElementById(tabName) ||
-      document.getElementById(`tab-${tabName}`)
-    );
-  }
-
   function activateTab(tabName, shouldScroll = true) {
-    const activeContent = getTabContent(tabName);
-
-    if (!activeContent) return;
-
     tabButtons.forEach((button) => {
       button.classList.remove("active");
       button.setAttribute("aria-selected", "false");
@@ -83,15 +69,15 @@ function initTabs() {
       content.classList.remove("active");
     });
 
-    const activeButtons = document.querySelectorAll(
+    const activeButton = document.querySelector(
       `.tab-btn[data-tab="${tabName}"]`
     );
+    const activeContent = document.getElementById(`tab-${tabName}`);
 
-    activeButtons.forEach((button) => {
-      button.classList.add("active");
-      button.setAttribute("aria-selected", "true");
-    });
+    if (!activeButton || !activeContent) return;
 
+    activeButton.classList.add("active");
+    activeButton.setAttribute("aria-selected", "true");
     activeContent.classList.add("active");
 
     if (shouldScroll) {
@@ -104,7 +90,7 @@ function initTabs() {
       }
     }
 
-    history.replaceState(null, "", `#${activeContent.id}`);
+    history.replaceState(null, "", `#tab-${tabName}`);
   }
 
   tabButtons.forEach((button) => {
@@ -113,57 +99,44 @@ function initTabs() {
 
     button.addEventListener("click", () => {
       const tabName = button.getAttribute("data-tab");
-      if (tabName) activateTab(tabName);
+      activateTab(tabName);
     });
 
     button.addEventListener("keydown", (event) => {
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
         const tabName = button.getAttribute("data-tab");
-        if (tabName) activateTab(tabName);
+        activateTab(tabName);
       }
     });
   });
 
-  // Abrir pestaña desde hash
-  const hash = window.location.hash.replace("#", "");
-
+  const hash = window.location.hash.replace("#tab-", "");
   if (hash) {
-    if (hash.startsWith("tab-")) {
-      activateTab(hash.replace("tab-", ""), false);
-    } else {
-      activateTab(hash, false);
-    }
+    activateTab(hash, false);
   }
 
   window.activateCongressTab = activateTab;
 }
 
-
 // ======================================================
 // Botones que abren pestañas específicas
-// Ejemplo: data-open-tab="registro"
 // ======================================================
 function initTabLinks() {
-  const links = document.querySelectorAll("[data-open-tab], .hero-action, .final-cta-actions button");
+  const links = document.querySelectorAll("[data-open-tab]");
 
   links.forEach((link) => {
     link.addEventListener("click", (event) => {
-      const tabName =
-        link.getAttribute("data-open-tab") ||
-        link.getAttribute("data-tab");
-
-      if (!tabName) return;
-
       event.preventDefault();
 
-      if (window.activateCongressTab) {
+      const tabName = link.getAttribute("data-open-tab");
+
+      if (window.activateCongressTab && tabName) {
         window.activateCongressTab(tabName);
       }
     });
   });
 }
-
 
 // ======================================================
 // Scroll suave para enlaces internos
@@ -180,18 +153,15 @@ function initSmoothScroll() {
         return;
       }
 
-      const hash = href.replace("#", "");
+      if (href.startsWith("#tab-")) {
+        event.preventDefault();
+        const tabName = href.replace("#tab-", "");
 
-      if (window.activateCongressTab) {
-        const possibleTab =
-          document.getElementById(hash) ||
-          document.getElementById(`tab-${hash}`);
-
-        if (possibleTab && possibleTab.classList.contains("tab-content")) {
-          event.preventDefault();
-          window.activateCongressTab(hash);
-          return;
+        if (window.activateCongressTab) {
+          window.activateCongressTab(tabName);
         }
+
+        return;
       }
 
       const target = document.querySelector(href);
@@ -206,7 +176,6 @@ function initSmoothScroll() {
     });
   });
 }
-
 
 // ======================================================
 // Efecto del header al hacer scroll
@@ -228,13 +197,12 @@ function initHeaderEffect() {
   window.addEventListener("scroll", updateHeader);
 }
 
-
 // ======================================================
 // Animaciones de entrada al hacer scroll
 // ======================================================
 function initScrollAnimations() {
   const animatedElements = document.querySelectorAll(
-    ".section-card, .stat-card, .speaker-card, .activity-card, .agenda-card, .memory-card, .cost-card, .info-card, .award-card, .category-card"
+    ".section-card, .stat-card, .speaker-card, .activity-card, .agenda-card, .memory-card, .cost-card, .info-card, .award-card"
   );
 
   if (!animatedElements.length) return;
@@ -261,7 +229,6 @@ function initScrollAnimations() {
   });
 }
 
-
 // ======================================================
 // Movimiento sutil de elementos matemáticos del hero
 // ======================================================
@@ -274,7 +241,6 @@ function initMathFloating() {
     item.style.animationDelay = `${index * 0.7}s`;
   });
 }
-
 
 // ======================================================
 // Efecto hover con inclinación muy suave en tarjetas
@@ -305,7 +271,6 @@ function initCardTilt() {
   });
 }
 
-
 // ======================================================
 // Botón volver arriba, si existe en el HTML
 // ======================================================
@@ -333,108 +298,94 @@ function initBackToTop() {
   window.addEventListener("scroll", toggleButton);
 }
 
-
 // ======================================================
-// Sistema de registro por categorías
+// Sistema de registro con formularios de WordPress
 // ======================================================
 function initRegistrationForms() {
-  const categoryButtons = document.querySelectorAll(".category-card");
-  const formContainer = document.getElementById("registration-form-container");
-  const formPanels = document.querySelectorAll(".registration-form-panel");
-  const backButton = document.getElementById("back-to-categories");
-  const categoryGrid = document.querySelector(".category-grid");
-  const categoryTitle = document.querySelector(".category-title");
+  const typeButtons = document.querySelectorAll(".reg-type-btn");
+  const placeholder = document.getElementById("form-placeholder");
+  const loading = document.getElementById("form-loading");
+  const iframe = document.getElementById("registration-iframe");
+  const container = document.getElementById("registration-form-container");
 
-  if (!categoryButtons.length || !formContainer || !formPanels.length) return;
+  if (!typeButtons.length || !iframe) return;
 
-  function openForm(formId) {
-    const selectedPanel = document.getElementById(formId);
+  // URLs de los formularios de WordPress
+  const formUrls = {
+    estudiantes: "https://scm.org.co/web/?elementor_library=congreso-xxv-estudiantes",
+    socios: "https://scm.org.co/web/?elementor_library=congreso-xxv-socios-scm",
+    profesionales: "https://scm.org.co/web/?elementor_library=congreso-xxv-profesionales",
+    profesores: "https://scm.org.co/web/?elementor_library=congreso-xxv-profesores"
+  };
 
-    if (!selectedPanel) return;
+  function loadForm(type) {
+    const url = formUrls[type];
+    if (!url) return;
 
-    formPanels.forEach((panel) => {
-      panel.classList.remove("active");
+    // Actualizar botones activos
+    typeButtons.forEach((btn) => {
+      btn.classList.remove("active");
+      if (btn.getAttribute("data-type") === type) {
+        btn.classList.add("active");
+      }
     });
 
-    categoryButtons.forEach((button) => {
-      button.classList.remove("active");
-    });
+    // Mostrar loading, ocultar placeholder e iframe
+    if (placeholder) placeholder.style.display = "none";
+    if (loading) loading.style.display = "flex";
+    iframe.style.display = "none";
 
-    selectedPanel.classList.add("active");
+    // Cargar el iframe
+    iframe.src = url;
 
-    const selectedButton = document.querySelector(
-      `.category-card[data-form="${formId}"]`
-    );
+    // Cuando el iframe cargue, mostrar y ocultar loading
+    iframe.onload = function () {
+      if (loading) loading.style.display = "none";
+      iframe.style.display = "block";
+      
+      // Scroll suave al contenedor del formulario
+      if (container) {
+        container.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+    };
 
-    if (selectedButton) {
-      selectedButton.classList.add("active");
-    }
-
-    formContainer.style.display = "block";
-
-    if (categoryGrid) {
-      categoryGrid.style.display = "none";
-    }
-
-    if (categoryTitle) {
-      categoryTitle.style.display = "none";
-    }
-
-    formContainer.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+    // Timeout en caso de que el iframe tarde mucho
+    setTimeout(function () {
+      if (loading && loading.style.display === "flex") {
+        loading.style.display = "none";
+        iframe.style.display = "block";
+      }
+    }, 8000);
   }
 
-  function backToCategories() {
-    formContainer.style.display = "none";
-
-    formPanels.forEach((panel) => {
-      panel.classList.remove("active");
-    });
-
-    categoryButtons.forEach((button) => {
-      button.classList.remove("active");
-    });
-
-    if (categoryGrid) {
-      categoryGrid.style.display = "grid";
-    }
-
-    if (categoryTitle) {
-      categoryTitle.style.display = "block";
-    }
-
-    const registrationSection = document.querySelector(".registration-section");
-
-    if (registrationSection) {
-      registrationSection.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  }
-
-  categoryButtons.forEach((button) => {
+  // Event listeners para los botones de tipo
+  typeButtons.forEach((button) => {
     button.addEventListener("click", function () {
-      const formId = this.getAttribute("data-form");
-      openForm(formId);
+      const type = this.getAttribute("data-type");
+      loadForm(type);
     });
 
     button.addEventListener("keydown", function (event) {
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
-        const formId = this.getAttribute("data-form");
-        openForm(formId);
+        const type = this.getAttribute("data-type");
+        loadForm(type);
       }
     });
   });
 
-  if (backButton) {
-    backButton.addEventListener("click", backToCategories);
+  // Verificar si hay un tipo de registro en el hash de la URL
+  const hash = window.location.hash;
+  if (hash && hash.includes("registro-")) {
+    const type = hash.replace("#registro-", "");
+    if (formUrls[type]) {
+      loadForm(type);
+    }
   }
 }
-
 
 // ======================================================
 // Inicialización general
@@ -450,4 +401,33 @@ document.addEventListener("DOMContentLoaded", () => {
   initCardTilt();
   initBackToTop();
   initRegistrationForms();
+});
+
+/* ================= Pestañas internas de registro ================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+  const registrationTabs = document.querySelectorAll(".registration-tab");
+  const registrationPanels = document.querySelectorAll(".registration-form-panel");
+
+  registrationTabs.forEach((tab) => {
+    tab.addEventListener("click", function () {
+      const targetForm = this.getAttribute("data-form");
+
+      registrationTabs.forEach((item) => {
+        item.classList.remove("active");
+      });
+
+      registrationPanels.forEach((panel) => {
+        panel.classList.remove("active");
+      });
+
+      this.classList.add("active");
+
+      const selectedPanel = document.getElementById(targetForm);
+
+      if (selectedPanel) {
+        selectedPanel.classList.add("active");
+      }
+    });
+  });
 });
