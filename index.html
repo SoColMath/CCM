@@ -223,36 +223,56 @@
     </section>
 
     <!-- ================= Registro ================= -->
-    <section class="tab-content" id="registro">
+    <!-- ================= Registro ================= -->
+<section class="tab-content" id="registro">
 
-      <div class="section-card google-form-section">
+  <div class="section-card registration-section">
 
-        <div class="form-intro">
-          <span class="eyebrow">Registro</span>
+    <div class="form-intro">
+      <span class="eyebrow">Registro</span>
 
-          <h2 class="section-title">
-            Formulario de inscripción
-          </h2>
+      <h2 class="section-title">
+        Formulario de inscripción
+      </h2>
 
-          <p class="section-text">
-            Completa el siguiente formulario para realizar tu registro al
-            <strong>XXV Congreso Colombiano de Matemáticas</strong>.
-          </p>
-        </div>
+      <p class="section-text">
+        Selecciona el tipo de registro que corresponde a tu participación en el
+        <strong>XXV Congreso Colombiano de Matemáticas</strong>.
+      </p>
+    </div>
 
-        <div class="google-form-card">
+    <div class="registration-card">
 
-          <div class="google-form-header">
-            <div>
-              <h3>Registro al congreso</h3>
-              <p>
-                Por favor diligencia todos los campos requeridos. La información registrada
-                será utilizada para gestionar tu inscripción al evento.
-              </p>
-            </div>
+      <!-- Pestañas internas -->
+      <div class="registration-tabs">
+        <button class="registration-tab active" data-form="form-estudiantes">
+          Estudiantes
+        </button>
+
+        <button class="registration-tab" data-form="form-socios">
+          Socios SCM
+        </button>
+
+        <button class="registration-tab" data-form="form-profesionales">
+          Profesionales
+        </button>
+
+        <button class="registration-tab" data-form="form-profesores">
+          Profesores
+        </button>
+      </div>
+
+      <!-- Formularios -->
+      <div class="registration-forms">
+
+        <!-- Estudiantes -->
+        <div class="registration-form-panel active" id="form-estudiantes">
+          <div class="registration-form-header">
+            <h3>Registro - Estudiantes</h3>
+            <p>Diligencia este formulario si tu inscripción corresponde a la categoría de estudiantes.</p>
           </div>
 
-          <div class="google-form-wrapper">
+          <div class="registration-iframe-wrapper">
             <iframe
               src="https://docs.google.com/forms/d/e/1FAIpQLSeeH_aYWGZ1P4DaSewg0-ALLF-iFhgrVMQIxX6xPT61BjRbew/viewform?embedded=true"
               frameborder="0"
@@ -261,12 +281,72 @@
               Cargando…
             </iframe>
           </div>
+        </div>
 
+        <!-- Socios SCM -->
+        <div class="registration-form-panel" id="form-socios">
+          <div class="registration-form-header">
+            <h3>Registro - Socios SCM</h3>
+            <p>Diligencia este formulario si eres socio o socia de la Sociedad Colombiana de Matemáticas.</p>
+          </div>
+
+          <div class="registration-iframe-wrapper">
+            <!-- Cuando tengas el formulario de Socios SCM, cambia solo el src -->
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLSeeH_aYWGZ1P4DaSewg0-ALLF-iFhgrVMQIxX6xPT61BjRbew/viewform?embedded=true"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0">
+              Cargando…
+            </iframe>
+          </div>
+        </div>
+
+        <!-- Profesionales -->
+        <div class="registration-form-panel" id="form-profesionales">
+          <div class="registration-form-header">
+            <h3>Registro - Profesionales</h3>
+            <p>Diligencia este formulario si tu inscripción corresponde a la categoría de profesionales.</p>
+          </div>
+
+          <div class="registration-iframe-wrapper">
+            <!-- Cuando tengas el formulario de Profesionales, cambia solo el src -->
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLSeeH_aYWGZ1P4DaSewg0-ALLF-iFhgrVMQIxX6xPT61BjRbew/viewform?embedded=true"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0">
+              Cargando…
+            </iframe>
+          </div>
+        </div>
+
+        <!-- Profesores -->
+        <div class="registration-form-panel" id="form-profesores">
+          <div class="registration-form-header">
+            <h3>Registro - Profesores</h3>
+            <p>Diligencia este formulario si tu inscripción corresponde a la categoría de profesores.</p>
+          </div>
+
+          <div class="registration-iframe-wrapper">
+            <!-- Cuando tengas el formulario de Profesores, cambia solo el src -->
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLSeeH_aYWGZ1P4DaSewg0-ALLF-iFhgrVMQIxX6xPT61BjRbew/viewform?embedded=true"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0">
+              Cargando…
+            </iframe>
+          </div>
         </div>
 
       </div>
 
-    </section>
+    </div>
+
+  </div>
+
+</section>
 
     <!-- ================= Ponencias ================= -->
     <section class="tab-content" id="ponencias">
