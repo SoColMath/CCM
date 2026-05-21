@@ -1782,3 +1782,18 @@ a.contact-value:hover {
     min-height: auto;
   }
 }
+
+.registration-form-iframe {
+  width: 100%;
+  min-height: 780px;
+  border: 0;
+  border-radius: 1rem;
+  background: #fff;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .registration-form-iframe {
+    min-height: 920px;
+  }
+}
