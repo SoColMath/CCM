@@ -299,6 +299,61 @@ function initBackToTop() {
 }
 
 // ======================================================
+// Selector de formularios de registro
+// ======================================================
+function initRegistrationSelector() {
+  const registrationButtons = document.querySelectorAll(".registration-type-btn");
+  const registrationPanels = document.querySelectorAll(".registration-form-panel");
+
+  if (!registrationButtons.length || !registrationPanels.length) return;
+
+  function activateRegistrationForm(type) {
+    registrationButtons.forEach((button) => {
+      const isActive = button.getAttribute("data-registration-type") === type;
+
+      button.classList.toggle("active", isActive);
+      button.setAttribute("aria-selected", isActive ? "true" : "false");
+    });
+
+    registrationPanels.forEach((panel) => {
+      const isActive = panel.getAttribute("data-registration-panel") === type;
+
+      panel.classList.toggle("active", isActive);
+      panel.setAttribute("aria-hidden", isActive ? "false" : "true");
+    });
+  }
+
+  registrationButtons.forEach((button) => {
+    button.setAttribute("role", "tab");
+    button.setAttribute("tabindex", "0");
+
+    button.addEventListener("click", () => {
+      const type = button.getAttribute("data-registration-type");
+      if (type) activateRegistrationForm(type);
+    });
+
+    button.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+
+        const type = button.getAttribute("data-registration-type");
+        if (type) activateRegistrationForm(type);
+      }
+    });
+  });
+
+  const activeButton =
+    document.querySelector(".registration-type-btn.active") ||
+    registrationButtons[0];
+
+  const defaultType = activeButton.getAttribute("data-registration-type");
+
+  if (defaultType) {
+    activateRegistrationForm(defaultType);
+  }
+}
+
+// ======================================================
 // Inicialización general
 // ======================================================
 document.addEventListener("DOMContentLoaded", () => {
@@ -311,4 +366,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initMathFloating();
   initCardTilt();
   initBackToTop();
+  initRegistrationSelector();
 });
