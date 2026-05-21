@@ -6,6 +6,7 @@
 // Fecha objetivo del congreso
 const CONGRESS_DATE = new Date("2027-06-08T08:00:00").getTime();
 
+
 // ======================================================
 // Cuenta regresiva
 // ======================================================
@@ -50,8 +51,10 @@ function initCountdown() {
   setInterval(updateCountdown, 1000);
 }
 
+
 // ======================================================
-// Sistema de pestañas
+// Sistema de pestañas principales
+// Compatible con id="registro" y con id="tab-registro"
 // ======================================================
 function initTabs() {
   const tabButtons = document.querySelectorAll(".tab-btn");
@@ -59,7 +62,18 @@ function initTabs() {
 
   if (!tabButtons.length || !tabContents.length) return;
 
+  function getTabContent(tabName) {
+    return (
+      document.getElementById(tabName) ||
+      document.getElementById(`tab-${tabName}`)
+    );
+  }
+
   function activateTab(tabName, shouldScroll = true) {
+    const activeContent = getTabContent(tabName);
+
+    if (!activeContent) return;
+
     tabButtons.forEach((button) => {
       button.classList.remove("active");
       button.setAttribute("aria-selected", "false");
@@ -69,15 +83,15 @@ function initTabs() {
       content.classList.remove("active");
     });
 
-    const activeButton = document.querySelector(
+    const activeButtons = document.querySelectorAll(
       `.tab-btn[data-tab="${tabName}"]`
     );
-    const activeContent = document.getElementById(`tab-${tabName}`);
 
-    if (!activeButton || !activeContent) return;
+    activeButtons.forEach((button) => {
+      button.classList.add("active");
+      button.setAttribute("aria-selected", "true");
+    });
 
-    activeButton.classList.add("active");
-    activeButton.setAttribute("aria-selected", "true");
     activeContent.classList.add("active");
 
     if (shouldScroll) {
@@ -90,7 +104,7 @@ function initTabs() {
       }
     }
 
-    history.replaceState(null, "", `#tab-${tabName}`);
+    history.replaceState(null, "", `#${activeContent.id}`);
   }
 
   tabButtons.forEach((button) => {
@@ -99,44 +113,57 @@ function initTabs() {
 
     button.addEventListener("click", () => {
       const tabName = button.getAttribute("data-tab");
-      activateTab(tabName);
+      if (tabName) activateTab(tabName);
     });
 
     button.addEventListener("keydown", (event) => {
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
         const tabName = button.getAttribute("data-tab");
-        activateTab(tabName);
+        if (tabName) activateTab(tabName);
       }
     });
   });
 
-  const hash = window.location.hash.replace("#tab-", "");
+  // Abrir pestaña desde hash
+  const hash = window.location.hash.replace("#", "");
+
   if (hash) {
-    activateTab(hash, false);
+    if (hash.startsWith("tab-")) {
+      activateTab(hash.replace("tab-", ""), false);
+    } else {
+      activateTab(hash, false);
+    }
   }
 
   window.activateCongressTab = activateTab;
 }
 
+
 // ======================================================
 // Botones que abren pestañas específicas
+// Ejemplo: data-open-tab="registro"
 // ======================================================
 function initTabLinks() {
-  const links = document.querySelectorAll("[data-open-tab]");
+  const links = document.querySelectorAll("[data-open-tab], .hero-action, .final-cta-actions button");
 
   links.forEach((link) => {
     link.addEventListener("click", (event) => {
+      const tabName =
+        link.getAttribute("data-open-tab") ||
+        link.getAttribute("data-tab");
+
+      if (!tabName) return;
+
       event.preventDefault();
 
-      const tabName = link.getAttribute("data-open-tab");
-
-      if (window.activateCongressTab && tabName) {
+      if (window.activateCongressTab) {
         window.activateCongressTab(tabName);
       }
     });
   });
 }
+
 
 // ======================================================
 // Scroll suave para enlaces internos
@@ -153,15 +180,18 @@ function initSmoothScroll() {
         return;
       }
 
-      if (href.startsWith("#tab-")) {
-        event.preventDefault();
-        const tabName = href.replace("#tab-", "");
+      const hash = href.replace("#", "");
 
-        if (window.activateCongressTab) {
-          window.activateCongressTab(tabName);
+      if (window.activateCongressTab) {
+        const possibleTab =
+          document.getElementById(hash) ||
+          document.getElementById(`tab-${hash}`);
+
+        if (possibleTab && possibleTab.classList.contains("tab-content")) {
+          event.preventDefault();
+          window.activateCongressTab(hash);
+          return;
         }
-
-        return;
       }
 
       const target = document.querySelector(href);
@@ -176,6 +206,7 @@ function initSmoothScroll() {
     });
   });
 }
+
 
 // ======================================================
 // Efecto del header al hacer scroll
@@ -197,12 +228,13 @@ function initHeaderEffect() {
   window.addEventListener("scroll", updateHeader);
 }
 
+
 // ======================================================
 // Animaciones de entrada al hacer scroll
 // ======================================================
 function initScrollAnimations() {
   const animatedElements = document.querySelectorAll(
-    ".section-card, .stat-card, .speaker-card, .activity-card, .agenda-card, .memory-card, .cost-card, .info-card, .award-card"
+    ".section-card, .stat-card, .speaker-card, .activity-card, .agenda-card, .memory-card, .cost-card, .info-card, .award-card, .category-card"
   );
 
   if (!animatedElements.length) return;
@@ -229,6 +261,7 @@ function initScrollAnimations() {
   });
 }
 
+
 // ======================================================
 // Movimiento sutil de elementos matemáticos del hero
 // ======================================================
@@ -241,6 +274,7 @@ function initMathFloating() {
     item.style.animationDelay = `${index * 0.7}s`;
   });
 }
+
 
 // ======================================================
 // Efecto hover con inclinación muy suave en tarjetas
@@ -271,6 +305,7 @@ function initCardTilt() {
   });
 }
 
+
 // ======================================================
 // Botón volver arriba, si existe en el HTML
 // ======================================================
@@ -298,139 +333,6 @@ function initBackToTop() {
   window.addEventListener("scroll", toggleButton);
 }
 
-// ======================================================
-// Sistema de registro con formularios de WordPress
-// ======================================================
-function initRegistrationForms() {
-  const typeButtons = document.querySelectorAll(".reg-type-btn");
-  const placeholder = document.getElementById("form-placeholder");
-  const loading = document.getElementById("form-loading");
-  const iframe = document.getElementById("registration-iframe");
-  const container = document.getElementById("registration-form-container");
-
-  if (!typeButtons.length || !iframe) return;
-
-  // URLs de los formularios de WordPress
-  const formUrls = {
-    estudiantes: "https://scm.org.co/web/?elementor_library=congreso-xxv-estudiantes",
-    socios: "https://scm.org.co/web/?elementor_library=congreso-xxv-socios-scm",
-    profesionales: "https://scm.org.co/web/?elementor_library=congreso-xxv-profesionales",
-    profesores: "https://scm.org.co/web/?elementor_library=congreso-xxv-profesores"
-  };
-
-  function loadForm(type) {
-    const url = formUrls[type];
-    if (!url) return;
-
-    // Actualizar botones activos
-    typeButtons.forEach((btn) => {
-      btn.classList.remove("active");
-      if (btn.getAttribute("data-type") === type) {
-        btn.classList.add("active");
-      }
-    });
-
-    // Mostrar loading, ocultar placeholder e iframe
-    if (placeholder) placeholder.style.display = "none";
-    if (loading) loading.style.display = "flex";
-    iframe.style.display = "none";
-
-    // Cargar el iframe
-    iframe.src = url;
-
-    // Cuando el iframe cargue, mostrar y ocultar loading
-    iframe.onload = function () {
-      if (loading) loading.style.display = "none";
-      iframe.style.display = "block";
-      
-      // Scroll suave al contenedor del formulario
-      if (container) {
-        container.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-      }
-    };
-
-    // Timeout en caso de que el iframe tarde mucho
-    setTimeout(function () {
-      if (loading && loading.style.display === "flex") {
-        loading.style.display = "none";
-        iframe.style.display = "block";
-      }
-    }, 8000);
-  }
-
-  // Event listeners para los botones de tipo
-  typeButtons.forEach((button) => {
-    button.addEventListener("click", function () {
-      const type = this.getAttribute("data-type");
-      loadForm(type);
-    });
-
-    button.addEventListener("keydown", function (event) {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        const type = this.getAttribute("data-type");
-        loadForm(type);
-      }
-    });
-  });
-
-  // Verificar si hay un tipo de registro en el hash de la URL
-  const hash = window.location.hash;
-  if (hash && hash.includes("registro-")) {
-    const type = hash.replace("#registro-", "");
-    if (formUrls[type]) {
-      loadForm(type);
-    }
-  }
-}
-
-// ======================================================
-// Inicialización general
-// ======================================================
-document.addEventListener("DOMContentLoaded", () => {
-  initCountdown();
-  initTabs();
-  initTabLinks();
-  initSmoothScroll();
-  initHeaderEffect();
-  initScrollAnimations();
-  initMathFloating();
-  initCardTilt();
-  initBackToTop();
-  initRegistrationForms();
-});
-
-/* ================= Pestañas internas de registro ================= */
-
-document.addEventListener("DOMContentLoaded", function () {
-  const registrationTabs = document.querySelectorAll(".registration-tab");
-  const registrationPanels = document.querySelectorAll(".registration-form-panel");
-
-  registrationTabs.forEach((tab) => {
-    tab.addEventListener("click", function () {
-      const targetForm = this.getAttribute("data-form");
-
-      registrationTabs.forEach((item) => {
-        item.classList.remove("active");
-      });
-
-      registrationPanels.forEach((panel) => {
-        panel.classList.remove("active");
-      });
-
-      this.classList.add("active");
-
-      const selectedPanel = document.getElementById(targetForm);
-
-      if (selectedPanel) {
-        selectedPanel.classList.add("active");
-      }
-    });
-  });
-});
 
 // ======================================================
 // Sistema de registro por categorías
@@ -446,24 +348,28 @@ function initRegistrationForms() {
   if (!categoryButtons.length || !formContainer || !formPanels.length) return;
 
   function openForm(formId) {
-    categoryButtons.forEach((button) => {
-      button.classList.remove("active");
-    });
+    const selectedPanel = document.getElementById(formId);
+
+    if (!selectedPanel) return;
 
     formPanels.forEach((panel) => {
       panel.classList.remove("active");
     });
 
-    const selectedButton = document.querySelector(`.category-card[data-form="${formId}"]`);
-    const selectedPanel = document.getElementById(formId);
+    categoryButtons.forEach((button) => {
+      button.classList.remove("active");
+    });
 
-    if (!selectedPanel) return;
+    selectedPanel.classList.add("active");
+
+    const selectedButton = document.querySelector(
+      `.category-card[data-form="${formId}"]`
+    );
 
     if (selectedButton) {
       selectedButton.classList.add("active");
     }
 
-    selectedPanel.classList.add("active");
     formContainer.style.display = "block";
 
     if (categoryGrid) {
@@ -476,7 +382,7 @@ function initRegistrationForms() {
 
     formContainer.scrollIntoView({
       behavior: "smooth",
-      block: "start"
+      block: "start",
     });
   }
 
@@ -500,10 +406,11 @@ function initRegistrationForms() {
     }
 
     const registrationSection = document.querySelector(".registration-section");
+
     if (registrationSection) {
       registrationSection.scrollIntoView({
         behavior: "smooth",
-        block: "start"
+        block: "start",
       });
     }
   }
@@ -527,3 +434,20 @@ function initRegistrationForms() {
     backButton.addEventListener("click", backToCategories);
   }
 }
+
+
+// ======================================================
+// Inicialización general
+// ======================================================
+document.addEventListener("DOMContentLoaded", () => {
+  initCountdown();
+  initTabs();
+  initTabLinks();
+  initSmoothScroll();
+  initHeaderEffect();
+  initScrollAnimations();
+  initMathFloating();
+  initCardTilt();
+  initBackToTop();
+  initRegistrationForms();
+});
