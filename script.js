@@ -313,11 +313,14 @@ function initRegistrationForms() {
 
   // URLs de los formularios de WordPress 
   const formUrls = {
-    estudiantes: "https://forms.gle/qC5JN6r1LNrKw2J18",
-    socios: "https://docs.google.com/forms/d/e/1FAIpQLSdbggoeFJeIsXZ0GAsNm0G1y_4MXHQ0UbIhwxZJ0lbgDb__PQ/viewform?usp=publish-editor",
-    profesionales: "https://docs.google.com/forms/d/e/1FAIpQLSf_ZmT9pSIQRu0AS-VPKCEdbr69XWEhZkmXcF3wTFJU6wKrQA/viewform?usp=publish-editor",
-    profesores: "https://docs.google.com/forms/d/e/1FAIpQLSeHEWmHGYL-_e8WJudJ2RKTFOmjM9g_rqjrQRV0GhEH-yCW7w/viewform?usp=publish-editor"
-  };
+  estudiantes: "https://docs.google.com/forms/d/e/1FAIpQLSeeH_aYWGZ1P4DaSewg0-ALLF-iFhgrVMQIxX6xPT61BjRbew/viewform?embedded=true",
+
+  socios: "https://docs.google.com/forms/d/e/1FAIpQLSdbggoeFJeIsXZ0GAsNm0G1y_4MXHQ0UbIhwxZJ0lbgDb__PQ/viewform?embedded=true",
+
+  profesionales: "https://docs.google.com/forms/d/e/1FAIpQLSf_ZmT9pSIQRu0AS-VPKCEdbr69XWEhZkmXcF3wTFJU6wKrQA/viewform?embedded=true",
+
+  profesores: "https://docs.google.com/forms/d/e/1FAIpQLSeHEWmHGYL-_e8WJudJ2RKTFOmjM9g_rqjrQRV0GhEH-yCW7w/viewform?embedded=true"
+};
 
   // Títulos de cada formulario
   const formTitles = {
@@ -351,8 +354,12 @@ function initRegistrationForms() {
     if (loading) loading.style.display = "flex";
     iframe.style.display = "none";
 
-    // Cargar el iframe
-    iframe.src = url;
+    // Cargar el iframe correctamente
+iframe.src = "";
+
+setTimeout(() => {
+  iframe.src = url;
+}, 50);
 
     // Cuando el iframe cargue, mostrar y ocultar loading
     iframe.onload = function () {
