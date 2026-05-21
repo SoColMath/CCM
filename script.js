@@ -431,3 +431,99 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// ======================================================
+// Sistema de registro por categorías
+// ======================================================
+function initRegistrationForms() {
+  const categoryButtons = document.querySelectorAll(".category-card");
+  const formContainer = document.getElementById("registration-form-container");
+  const formPanels = document.querySelectorAll(".registration-form-panel");
+  const backButton = document.getElementById("back-to-categories");
+  const categoryGrid = document.querySelector(".category-grid");
+  const categoryTitle = document.querySelector(".category-title");
+
+  if (!categoryButtons.length || !formContainer || !formPanels.length) return;
+
+  function openForm(formId) {
+    categoryButtons.forEach((button) => {
+      button.classList.remove("active");
+    });
+
+    formPanels.forEach((panel) => {
+      panel.classList.remove("active");
+    });
+
+    const selectedButton = document.querySelector(`.category-card[data-form="${formId}"]`);
+    const selectedPanel = document.getElementById(formId);
+
+    if (!selectedPanel) return;
+
+    if (selectedButton) {
+      selectedButton.classList.add("active");
+    }
+
+    selectedPanel.classList.add("active");
+    formContainer.style.display = "block";
+
+    if (categoryGrid) {
+      categoryGrid.style.display = "none";
+    }
+
+    if (categoryTitle) {
+      categoryTitle.style.display = "none";
+    }
+
+    formContainer.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }
+
+  function backToCategories() {
+    formContainer.style.display = "none";
+
+    formPanels.forEach((panel) => {
+      panel.classList.remove("active");
+    });
+
+    categoryButtons.forEach((button) => {
+      button.classList.remove("active");
+    });
+
+    if (categoryGrid) {
+      categoryGrid.style.display = "grid";
+    }
+
+    if (categoryTitle) {
+      categoryTitle.style.display = "block";
+    }
+
+    const registrationSection = document.querySelector(".registration-section");
+    if (registrationSection) {
+      registrationSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+  }
+
+  categoryButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const formId = this.getAttribute("data-form");
+      openForm(formId);
+    });
+
+    button.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        const formId = this.getAttribute("data-form");
+        openForm(formId);
+      }
+    });
+  });
+
+  if (backButton) {
+    backButton.addEventListener("click", backToCategories);
+  }
+}
