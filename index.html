@@ -399,85 +399,108 @@
             <span class="eyebrow">Inscripción</span>
             <h2 class="section-title">Registro</h2>
           </div>
-          <span class="status-pill">Por habilitar</span>
+          <span class="status-pill">Seleccione categoría</span>
         </div>
         <p class="section-text">
-          En esta sección se publicará la información oficial para realizar la inscripción al Congreso.
+          Selecciona el tipo de registro que corresponde a tu participación. Al elegir una categoría se desplegará
+          el formulario respectivo para completar la inscripción al Congreso.
         </p>
 
         <div class="registration-steps">
           <article class="step-card">
             <span class="step-number">01</span>
-            <h4>Completar formulario</h4>
-            <p>Diligenciar los datos personales, institucionales y categoría de participación.</p>
+            <h4>Seleccionar categoría</h4>
+            <p>Elige si tu registro corresponde a estudiante, socio SCM, profesional o profesor.</p>
           </article>
           <article class="step-card">
             <span class="step-number">02</span>
-            <h4>Realizar pago</h4>
-            <p>Seleccionar el medio de pago disponible y conservar el soporte correspondiente.</p>
+            <h4>Completar formulario</h4>
+            <p>Diligencia tus datos personales, institucionales y la información solicitada.</p>
           </article>
           <article class="step-card">
             <span class="step-number">03</span>
             <h4>Confirmar inscripción</h4>
-            <p>Recibir la confirmación oficial al correo electrónico registrado.</p>
+            <p>Revisa la información enviada y conserva la confirmación que llegue a tu correo.</p>
           </article>
         </div>
 
-        <h3 class="section-subtitle">Categorías de participación</h3>
-        <div class="info-grid">
-          <div class="info-card">
-            <div class="info-card-icon">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-              </svg>
-            </div>
-            <div>
-              <h4>Estudiantes</h4>
-              <p>Pregrado y posgrado. Se podrá solicitar carné vigente.</p>
-            </div>
+        <div class="registration-selector" aria-label="Seleccionar tipo de registro">
+          <div class="registration-selector-heading">
+            <span class="eyebrow">Tipo de registro</span>
+            <h3 class="section-subtitle no-margin">Elige tu categoría de inscripción</h3>
           </div>
-          <div class="info-card">
-            <div class="info-card-icon">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
-            </div>
-            <div>
-              <h4>Docentes</h4>
-              <p>Profesores de educación básica, media y superior.</p>
-            </div>
+
+          <div class="registration-type-grid" role="tablist" aria-label="Formularios de registro">
+            <button class="registration-type-btn active" type="button" data-registration-form="estudiantes" role="tab" aria-selected="true">
+              <span class="registration-type-icon">🎓</span>
+              <span>
+                <strong>Estudiantes</strong>
+                <small>Pregrado y posgrado</small>
+              </span>
+            </button>
+
+            <button class="registration-type-btn" type="button" data-registration-form="socios" role="tab" aria-selected="false">
+              <span class="registration-type-icon">∑</span>
+              <span>
+                <strong>Socios SCM</strong>
+                <small>Miembros activos de la SCM</small>
+              </span>
+            </button>
+
+            <button class="registration-type-btn" type="button" data-registration-form="profesionales" role="tab" aria-selected="false">
+              <span class="registration-type-icon">💼</span>
+              <span>
+                <strong>Profesionales</strong>
+                <small>Participantes externos</small>
+              </span>
+            </button>
+
+            <button class="registration-type-btn" type="button" data-registration-form="profesores" role="tab" aria-selected="false">
+              <span class="registration-type-icon">📚</span>
+              <span>
+                <strong>Profesores</strong>
+                <small>Docentes e investigadores</small>
+              </span>
+            </button>
           </div>
-          <div class="info-card">
-            <div class="info-card-icon">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <path d="M16 10a4 4 0 0 1-8 0"></path>
-              </svg>
+        </div>
+
+        <div class="registration-forms">
+          <div class="registration-form-panel active" id="registro-estudiantes" data-registration-panel="estudiantes" role="tabpanel">
+            <div class="form-panel-heading">
+              <h3>Registro para estudiantes</h3>
+              <p>Formulario para participantes de pregrado y posgrado.</p>
             </div>
-            <div>
-              <h4>Profesionales</h4>
-              <p>Miembros de la SCM y participantes externos.</p>
+            [elementor-template id="6258"]
+          </div>
+
+          <div class="registration-form-panel" id="registro-socios" data-registration-panel="socios" role="tabpanel">
+            <div class="form-panel-heading">
+              <h3>Registro para socios SCM</h3>
+              <p>Formulario para miembros activos de la Sociedad Colombiana de Matemáticas.</p>
             </div>
+            [elementor-template id="6260"]
+          </div>
+
+          <div class="registration-form-panel" id="registro-profesionales" data-registration-panel="profesionales" role="tabpanel">
+            <div class="form-panel-heading">
+              <h3>Registro para profesionales</h3>
+              <p>Formulario para profesionales y participantes externos.</p>
+            </div>
+            [elementor-template id="6261"]
+          </div>
+
+          <div class="registration-form-panel" id="registro-profesores" data-registration-panel="profesores" role="tabpanel">
+            <div class="form-panel-heading">
+              <h3>Registro para profesores</h3>
+              <p>Formulario para profesores, docentes e investigadores.</p>
+            </div>
+            [elementor-template id="6262"]
           </div>
         </div>
 
         <div class="note-box">
-          <p><strong>Nota:</strong> Los enlaces de registro y pago serán habilitados una vez sean anunciados oficialmente.</p>
-        </div>
-
-        <div class="buttons-row">
-          <a href="#" class="btn-primary">
-            Formulario de registro
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </a>
-          <a href="#" class="btn-secondary">Consultar medios de pago</a>
+          <p><strong>Importante:</strong> Verifica que seleccionaste la categoría correcta antes de enviar el formulario.</p>
         </div>
       </section>
     </div>
