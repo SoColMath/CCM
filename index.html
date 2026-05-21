@@ -99,11 +99,11 @@
       </div>
 
       <div class="hero-actions">
-        <button class="btn-primary hero-action" data-tab="registro">
+        <button class="btn-primary hero-action" data-open-tab="registro">
           Inscribirme
         </button>
 
-        <button class="btn-secondary hero-action" data-tab="programacion">
+        <button class="btn-secondary hero-action" data-open-tab="programacion">
           Ver programación
         </button>
       </div>
@@ -150,7 +150,7 @@
   <main class="main-content">
 
     <!-- ================= Inicio ================= -->
-    <section class="tab-content active" id="inicio-tab">
+    <section class="tab-content active" id="tab-inicio-tab">
 
       <div class="section-card intro-card">
         <div class="section-heading-row">
@@ -223,133 +223,132 @@
     </section>
 
     <!-- ================= Registro ================= -->
-    <!-- ================= Registro ================= -->
-<section class="tab-content" id="tab-registro">
+    <section class="tab-content" id="tab-registro">
 
-  <div class="section-card registration-section">
+      <div class="section-card registration-section">
 
-    <!-- Encabezado con badges -->
-    <div class="registration-header">
-      <span class="eyebrow">Inscripcion</span>
-      <span class="status-badge status-open">ABIERTO</span>
-    </div>
+        <!-- Encabezado con badges -->
+        <div class="registration-header">
+          <span class="eyebrow">Inscripción</span>
+          <span class="status-badge status-open">ABIERTO</span>
+        </div>
 
-    <h2 class="section-title">Registro</h2>
+        <h2 class="section-title">Registro</h2>
 
-    <p class="section-text">
-      Seleccione su tipo de participante para acceder al formulario de registro correspondiente.
-    </p>
+        <p class="section-text">
+          Seleccione su tipo de participante para acceder al formulario de registro correspondiente.
+        </p>
 
-    <!-- Pasos del proceso -->
-    <div class="registration-steps">
-      <div class="step-card">
-        <div class="step-number">01</div>
-        <h4>Seleccionar categoria</h4>
-        <p>Escoja el tipo de participante que corresponda a su perfil.</p>
+        <!-- Pasos del proceso -->
+        <div class="registration-steps">
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <h4>Seleccionar categoría</h4>
+            <p>Escoja el tipo de participante que corresponda a su perfil.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">02</div>
+            <h4>Completar formulario</h4>
+            <p>Diligenciar los datos personales, institucionales y de participación.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <h4>Confirmar inscripción</h4>
+            <p>Recibir la confirmación oficial al correo electrónico registrado.</p>
+          </div>
+        </div>
+
+        <!-- Selección de tipo de registro -->
+        <h3 class="section-subtitle">Seleccione su tipo de registro</h3>
+
+        <div class="reg-type-grid">
+          <button class="reg-type-btn" data-type="estudiantes" type="button">
+            <span class="reg-type-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/>
+              </svg>
+            </span>
+            <span class="reg-type-label">Estudiantes</span>
+            <span class="reg-type-desc">Pregrado y posgrado</span>
+          </button>
+
+          <button class="reg-type-btn" data-type="socios" type="button">
+            <span class="reg-type-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </span>
+            <span class="reg-type-label">Socios SCM</span>
+            <span class="reg-type-desc">Miembros activos</span>
+          </button>
+
+          <button class="reg-type-btn" data-type="profesionales" type="button">
+            <span class="reg-type-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+              </svg>
+            </span>
+            <span class="reg-type-label">Profesionales</span>
+            <span class="reg-type-desc">Sector público y privado</span>
+          </button>
+
+          <button class="reg-type-btn" data-type="profesores" type="button">
+            <span class="reg-type-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/>
+                <circle cx="12" cy="10" r="2"/>
+              </svg>
+            </span>
+            <span class="reg-type-label">Profesores</span>
+            <span class="reg-type-desc">Docentes e investigadores</span>
+          </button>
+        </div>
+
+        <!-- Contenedor del formulario (oculto inicialmente) -->
+        <div id="registration-form-container" class="registration-form-container" style="display: none;">
+          
+          <div class="form-header">
+            <button type="button" class="btn-back" id="btn-change-category">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+              </svg>
+              Cambiar categoría
+            </button>
+            <h3 id="form-title">Formulario de registro</h3>
+          </div>
+
+          <!-- Loading -->
+          <div id="form-loading" class="form-loading">
+            <div class="loading-spinner"></div>
+            <p>Cargando formulario...</p>
+          </div>
+
+          <!-- Iframe del formulario -->
+          <iframe 
+            id="registration-iframe" 
+            class="registration-iframe"
+            frameborder="0" 
+            marginheight="0" 
+            marginwidth="0"
+            style="display: none;">
+          </iframe>
+
+        </div>
+
       </div>
 
-      <div class="step-card">
-        <div class="step-number">02</div>
-        <h4>Completar formulario</h4>
-        <p>Diligenciar los datos personales, institucionales y de participacion.</p>
-      </div>
-
-      <div class="step-card">
-        <div class="step-number">03</div>
-        <h4>Confirmar inscripcion</h4>
-        <p>Recibir la confirmacion oficial al correo electronico registrado.</p>
-      </div>
-    </div>
-
-    <!-- Seleccion de tipo de registro -->
-    <h3 class="section-subtitle">Seleccione su tipo de registro</h3>
-
-    <div class="reg-type-grid">
-      <button class="reg-type-btn" data-type="estudiantes" type="button">
-        <span class="reg-type-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-            <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/>
-          </svg>
-        </span>
-        <span class="reg-type-label">Estudiantes</span>
-        <span class="reg-type-desc">Pregrado y posgrado</span>
-      </button>
-
-      <button class="reg-type-btn" data-type="socios" type="button">
-        <span class="reg-type-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-            <circle cx="9" cy="7" r="4"/>
-            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
-            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-          </svg>
-        </span>
-        <span class="reg-type-label">Socios SCM</span>
-        <span class="reg-type-desc">Miembros activos</span>
-      </button>
-
-      <button class="reg-type-btn" data-type="profesionales" type="button">
-        <span class="reg-type-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-          </svg>
-        </span>
-        <span class="reg-type-label">Profesionales</span>
-        <span class="reg-type-desc">Sector publico y privado</span>
-      </button>
-
-      <button class="reg-type-btn" data-type="profesores" type="button">
-        <span class="reg-type-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-            <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/>
-            <circle cx="12" cy="10" r="2"/>
-          </svg>
-        </span>
-        <span class="reg-type-label">Profesores</span>
-        <span class="reg-type-desc">Docentes e investigadores</span>
-      </button>
-    </div>
-
-    <!-- Contenedor del formulario (oculto inicialmente) -->
-    <div id="registration-form-container" class="registration-form-container" style="display: none;">
-      
-      <div class="form-header">
-        <button type="button" class="btn-back" id="btn-change-category">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M19 12H5M12 19l-7-7 7-7"/>
-          </svg>
-          Cambiar categoria
-        </button>
-        <h3 id="form-title">Formulario de registro</h3>
-      </div>
-
-      <!-- Loading -->
-      <div id="form-loading" class="form-loading">
-        <div class="spinner"></div>
-        <p>Cargando formulario...</p>
-      </div>
-
-      <!-- Iframe del formulario -->
-      <iframe 
-        id="registration-iframe" 
-        class="registration-iframe"
-        frameborder="0" 
-        marginheight="0" 
-        marginwidth="0"
-        style="display: none;">
-      </iframe>
-
-    </div>
-
-  </div>
-
-</section>
+    </section>
 
     <!-- ================= Ponencias ================= -->
-    <section class="tab-content" id="ponencias">
+    <section class="tab-content" id="tab-ponencias">
 
       <div class="section-card">
         <span class="eyebrow">Ponencias</span>
@@ -400,7 +399,7 @@
     </section>
 
     <!-- ================= Costos ================= -->
-    <section class="tab-content" id="costos">
+    <section class="tab-content" id="tab-costos">
 
       <div class="section-card">
         <span class="eyebrow">Costos</span>
@@ -444,7 +443,7 @@
     </section>
 
     <!-- ================= Información ================= -->
-    <section class="tab-content" id="informacion">
+    <section class="tab-content" id="tab-informacion">
 
       <div class="section-card venue-section">
         <div class="venue-layout">
@@ -462,11 +461,11 @@
             </p>
 
             <div class="venue-actions">
-              <a class="btn-primary" href="#registro">
+              <a class="btn-primary" href="#" data-open-tab="registro">
                 Realizar registro
               </a>
 
-              <a class="btn-secondary" href="#programacion">
+              <a class="btn-secondary" href="#" data-open-tab="programacion">
                 Ver programación
               </a>
             </div>
@@ -513,7 +512,7 @@
     </section>
 
     <!-- ================= Programación ================= -->
-    <section class="tab-content" id="programacion">
+    <section class="tab-content" id="tab-programacion">
 
       <div class="section-card">
         <span class="eyebrow">Programación</span>
@@ -563,7 +562,7 @@
     </section>
 
     <!-- ================= Memorias ================= -->
-    <section class="tab-content" id="memorias">
+    <section class="tab-content" id="tab-memorias">
 
       <div class="section-card">
         <span class="eyebrow">Memorias</span>
@@ -608,11 +607,11 @@
       </p>
 
       <div class="final-cta-actions">
-        <button class="btn-primary" data-tab="registro">
-          Ir al registro
+        <button class="btn-primary" data-open-tab="registro">
+          Inscribirme ahora
         </button>
 
-        <button class="btn-secondary" data-tab="informacion">
+        <button class="btn-secondary" data-open-tab="informacion">
           Más información
         </button>
       </div>
@@ -623,90 +622,25 @@
   <!-- ================= Footer ================= -->
   <footer class="footer">
     <div class="footer-container">
-
       <div class="footer-logo">
         <img
-          class="footer-scm-logo"
+          class="scm-logo footer-scm-logo"
           src="https://scm.org.co/web/wp-content/uploads/elementor/thumbs/Logo-SCM-PNG-r2qh1lzukhrwimfdnwfzwu6nqu76fo74jytgb9baps.png"
-          alt="Logo Sociedad Colombiana de Matemáticas"
+          alt="Logo SCM"
         />
-
-        <div>
-          <div class="footer-title">
-            Sociedad Colombiana de Matemáticas
-          </div>
-
-          <div class="footer-subtitle">
-            XXV Congreso Colombiano de Matemáticas
-          </div>
+        <div class="logo-text">
+          <div class="footer-title">Sociedad Colombiana de Matemáticas</div>
+          <div class="footer-subtitle">Organizador oficial del congreso</div>
         </div>
       </div>
 
       <div class="footer-info">
-        <p>© 2026 Sociedad Colombiana de Matemáticas</p>
-        <p>Todos los derechos reservados</p>
+        <p>XXV Congreso Colombiano de Matemáticas</p>
+        <p>Colombia 2026</p>
       </div>
-
     </div>
   </footer>
 
-  <!-- ================= Script básico de pestañas ================= -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const tabButtons = document.querySelectorAll("[data-tab]");
-      const tabContents = document.querySelectorAll(".tab-content");
-
-      function activateTab(tabId) {
-        tabContents.forEach((content) => {
-          content.classList.remove("active");
-        });
-
-        tabButtons.forEach((button) => {
-          button.classList.remove("active");
-        });
-
-        const selectedContent = document.getElementById(tabId);
-
-        if (selectedContent) {
-          selectedContent.classList.add("active");
-
-          const matchingButtons = document.querySelectorAll(`[data-tab="${tabId}"]`);
-          matchingButtons.forEach((button) => {
-            button.classList.add("active");
-          });
-
-          const mainContent = document.querySelector(".main-content");
-          if (mainContent) {
-            mainContent.scrollIntoView({
-              behavior: "smooth",
-              block: "start"
-            });
-          }
-        }
-      }
-
-      tabButtons.forEach((button) => {
-        button.addEventListener("click", function () {
-          const tabId = this.getAttribute("data-tab");
-
-          if (tabId === "inicio") {
-            window.location.hash = "inicio";
-            return;
-          }
-
-          activateTab(tabId);
-        });
-      });
-
-      const hash = window.location.hash.replace("#", "");
-
-      if (hash && document.getElementById(hash)) {
-        if (document.getElementById(hash).classList.contains("tab-content")) {
-          activateTab(hash);
-        }
-      }
-    });
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
