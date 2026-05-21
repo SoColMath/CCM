@@ -299,141 +299,7 @@ function initBackToTop() {
 }
 
 // ======================================================
-// Sistema de registro con formularios de WordPress
-// ======================================================
-function initRegistrationForms() {
-  const typeButtons = document.querySelectorAll(".reg-type-btn");
-  const placeholder = document.getElementById("form-placeholder");
-  const loading = document.getElementById("form-loading");
-  const iframe = document.getElementById("registration-iframe");
-  const container = document.getElementById("registration-form-container");
-
-  if (!typeButtons.length || !iframe) return;
-
-  // URLs de los formularios de WordPress
-  const formUrls = {
-    estudiantes: "https://scm.org.co/web/?elementor_library=congreso-xxv-estudiantes",
-    socios: "https://scm.org.co/web/?elementor_library=congreso-xxv-socios-scm",
-    profesionales: "https://scm.org.co/web/?elementor_library=congreso-xxv-profesionales",
-    profesores: "https://scm.org.co/web/?elementor_library=congreso-xxv-profesores"
-  };
-
-  function loadForm(type) {
-    const url = formUrls[type];
-    if (!url) return;
-
-    // Actualizar botones activos
-    typeButtons.forEach((btn) => {
-      btn.classList.remove("active");
-      if (btn.getAttribute("data-type") === type) {
-        btn.classList.add("active");
-      }
-    });
-
-    // Mostrar loading, ocultar placeholder e iframe
-    if (placeholder) placeholder.style.display = "none";
-    if (loading) loading.style.display = "flex";
-    iframe.style.display = "none";
-
-    // Cargar el iframe
-    iframe.src = url;
-
-    // Cuando el iframe cargue, mostrar y ocultar loading
-    iframe.onload = function () {
-      if (loading) loading.style.display = "none";
-      iframe.style.display = "block";
-      
-      // Scroll suave al contenedor del formulario
-      if (container) {
-        container.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-      }
-    };
-
-    // Timeout en caso de que el iframe tarde mucho
-    setTimeout(function () {
-      if (loading && loading.style.display === "flex") {
-        loading.style.display = "none";
-        iframe.style.display = "block";
-      }
-    }, 8000);
-  }
-
-  // Event listeners para los botones de tipo
-  typeButtons.forEach((button) => {
-    button.addEventListener("click", function () {
-      const type = this.getAttribute("data-type");
-      loadForm(type);
-    });
-
-    button.addEventListener("keydown", function (event) {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        const type = this.getAttribute("data-type");
-        loadForm(type);
-      }
-    });
-  });
-
-  // Verificar si hay un tipo de registro en el hash de la URL
-  const hash = window.location.hash;
-  if (hash && hash.includes("registro-")) {
-    const type = hash.replace("#registro-", "");
-    if (formUrls[type]) {
-      loadForm(type);
-    }
-  }
-}
-
-// ======================================================
-// Inicialización general
-// ======================================================
-document.addEventListener("DOMContentLoaded", () => {
-  initCountdown();
-  initTabs();
-  initTabLinks();
-  initSmoothScroll();
-  initHeaderEffect();
-  initScrollAnimations();
-  initMathFloating();
-  initCardTilt();
-  initBackToTop();
-  initRegistrationForms();
-});
-
-/* ================= Pestañas internas de registro ================= */
-
-document.addEventListener("DOMContentLoaded", function () {
-  const registrationTabs = document.querySelectorAll(".registration-tab");
-  const registrationPanels = document.querySelectorAll(".registration-form-panel");
-
-  registrationTabs.forEach((tab) => {
-    tab.addEventListener("click", function () {
-      const targetForm = this.getAttribute("data-form");
-
-      registrationTabs.forEach((item) => {
-        item.classList.remove("active");
-      });
-
-      registrationPanels.forEach((panel) => {
-        panel.classList.remove("active");
-      });
-
-      this.classList.add("active");
-
-      const selectedPanel = document.getElementById(targetForm);
-
-      if (selectedPanel) {
-        selectedPanel.classList.add("active");
-      }
-    });
-  });
-});
-
-// ======================================================
-// Sistema de registro con seleccion de categoria
+// Sistema de registro con selección de categoría
 // ======================================================
 function initRegistrationForms() {
   const typeButtons = document.querySelectorAll(".reg-type-btn");
@@ -443,17 +309,17 @@ function initRegistrationForms() {
   const formTitle = document.getElementById("form-title");
   const btnChangeCategory = document.getElementById("btn-change-category");
 
-  if (!typeButtons.length || !iframe || !formContainer) return;
+  if (!typeButtons.length || !formContainer) return;
 
-  // URLs de los formularios de Google Forms (reemplaza con los tuyos)
+  // URLs de los formularios de WordPress (reemplaza con los tuyos)
   const formUrls = {
-    estudiantes: "https://docs.google.com/forms/d/e/TU_FORM_ESTUDIANTES/viewform?embedded=true",
-    socios: "https://docs.google.com/forms/d/e/TU_FORM_SOCIOS/viewform?embedded=true",
-    profesionales: "https://docs.google.com/forms/d/e/TU_FORM_PROFESIONALES/viewform?embedded=true",
-    profesores: "https://docs.google.com/forms/d/e/TU_FORM_PROFESORES/viewform?embedded=true"
+    estudiantes: "https://scm.org.co/web/?elementor_library=congreso-xxv-estudiantes",
+    socios: "https://scm.org.co/web/?elementor_library=congreso-xxv-socios-scm",
+    profesionales: "https://scm.org.co/web/?elementor_library=congreso-xxv-profesionales",
+    profesores: "https://scm.org.co/web/?elementor_library=congreso-xxv-profesores"
   };
 
-  // Titulos de cada formulario
+  // Títulos de cada formulario
   const formTitles = {
     estudiantes: "Registro - Estudiantes",
     socios: "Registro - Socios SCM",
@@ -463,7 +329,7 @@ function initRegistrationForms() {
 
   function loadForm(type) {
     const url = formUrls[type];
-    if (!url) return;
+    if (!url || !iframe) return;
 
     // Actualizar botones activos
     typeButtons.forEach((btn) => {
@@ -476,7 +342,7 @@ function initRegistrationForms() {
     // Mostrar contenedor del formulario
     formContainer.style.display = "block";
 
-    // Actualizar titulo
+    // Actualizar título
     if (formTitle) {
       formTitle.textContent = formTitles[type] || "Formulario de registro";
     }
@@ -512,7 +378,7 @@ function initRegistrationForms() {
   function hideForm() {
     // Ocultar contenedor del formulario
     formContainer.style.display = "none";
-    iframe.src = "";
+    if (iframe) iframe.src = "";
 
     // Quitar clase activa de todos los botones
     typeButtons.forEach((btn) => {
@@ -526,15 +392,43 @@ function initRegistrationForms() {
       const type = this.getAttribute("data-type");
       loadForm(type);
     });
+
+    button.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        const type = this.getAttribute("data-type");
+        loadForm(type);
+      }
+    });
   });
 
-  // Boton para cambiar categoria
+  // Botón para cambiar categoría
   if (btnChangeCategory) {
     btnChangeCategory.addEventListener("click", hideForm);
   }
+
+  // Verificar si hay un tipo de registro en el hash de la URL
+  const hash = window.location.hash;
+  if (hash && hash.includes("registro-")) {
+    const type = hash.replace("#registro-", "");
+    if (formUrls[type]) {
+      loadForm(type);
+    }
+  }
 }
 
-// Llamar la funcion cuando el DOM este listo
-document.addEventListener("DOMContentLoaded", function() {
+// ======================================================
+// Inicialización general
+// ======================================================
+document.addEventListener("DOMContentLoaded", () => {
+  initCountdown();
+  initTabs();
+  initTabLinks();
+  initSmoothScroll();
+  initHeaderEffect();
+  initScrollAnimations();
+  initMathFloating();
+  initCardTilt();
+  initBackToTop();
   initRegistrationForms();
 });
