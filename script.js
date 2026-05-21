@@ -299,57 +299,91 @@ function initBackToTop() {
 }
 
 // ======================================================
-// Selector de formularios de registro
+// Sistema de registro con formularios de WordPress
 // ======================================================
-function initRegistrationSelector() {
-  const registrationButtons = document.querySelectorAll(".registration-type-btn");
-  const registrationPanels = document.querySelectorAll(".registration-form-panel");
+function initRegistrationForms() {
+  const typeButtons = document.querySelectorAll(".reg-type-btn");
+  const placeholder = document.getElementById("form-placeholder");
+  const loading = document.getElementById("form-loading");
+  const iframe = document.getElementById("registration-iframe");
+  const container = document.getElementById("registration-form-container");
 
-  if (!registrationButtons.length || !registrationPanels.length) return;
+  if (!typeButtons.length || !iframe) return;
 
-  function activateRegistrationForm(type) {
-    registrationButtons.forEach((button) => {
-      const isActive = button.getAttribute("data-registration-type") === type;
+  // URLs de los formularios de WordPress
+  const formUrls = {
+    estudiantes: "https://scm.org.co/web/?elementor_library=congreso-xxv-estudiantes",
+    socios: "https://scm.org.co/web/?elementor_library=congreso-xxv-socios-scm",
+    profesionales: "https://scm.org.co/web/?elementor_library=congreso-xxv-profesionales",
+    profesores: "https://scm.org.co/web/?elementor_library=congreso-xxv-profesores"
+  };
 
-      button.classList.toggle("active", isActive);
-      button.setAttribute("aria-selected", isActive ? "true" : "false");
+  function loadForm(type) {
+    const url = formUrls[type];
+    if (!url) return;
+
+    // Actualizar botones activos
+    typeButtons.forEach((btn) => {
+      btn.classList.remove("active");
+      if (btn.getAttribute("data-type") === type) {
+        btn.classList.add("active");
+      }
     });
 
-    registrationPanels.forEach((panel) => {
-      const isActive = panel.getAttribute("data-registration-panel") === type;
+    // Mostrar loading, ocultar placeholder e iframe
+    if (placeholder) placeholder.style.display = "none";
+    if (loading) loading.style.display = "flex";
+    iframe.style.display = "none";
 
-      panel.classList.toggle("active", isActive);
-      panel.setAttribute("aria-hidden", isActive ? "false" : "true");
-    });
+    // Cargar el iframe
+    iframe.src = url;
+
+    // Cuando el iframe cargue, mostrar y ocultar loading
+    iframe.onload = function () {
+      if (loading) loading.style.display = "none";
+      iframe.style.display = "block";
+      
+      // Scroll suave al contenedor del formulario
+      if (container) {
+        container.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+    };
+
+    // Timeout en caso de que el iframe tarde mucho
+    setTimeout(function () {
+      if (loading && loading.style.display === "flex") {
+        loading.style.display = "none";
+        iframe.style.display = "block";
+      }
+    }, 8000);
   }
 
-  registrationButtons.forEach((button) => {
-    button.setAttribute("role", "tab");
-    button.setAttribute("tabindex", "0");
-
-    button.addEventListener("click", () => {
-      const type = button.getAttribute("data-registration-type");
-      if (type) activateRegistrationForm(type);
+  // Event listeners para los botones de tipo
+  typeButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const type = this.getAttribute("data-type");
+      loadForm(type);
     });
 
-    button.addEventListener("keydown", (event) => {
+    button.addEventListener("keydown", function (event) {
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
-
-        const type = button.getAttribute("data-registration-type");
-        if (type) activateRegistrationForm(type);
+        const type = this.getAttribute("data-type");
+        loadForm(type);
       }
     });
   });
 
-  const activeButton =
-    document.querySelector(".registration-type-btn.active") ||
-    registrationButtons[0];
-
-  const defaultType = activeButton.getAttribute("data-registration-type");
-
-  if (defaultType) {
-    activateRegistrationForm(defaultType);
+  // Verificar si hay un tipo de registro en el hash de la URL
+  const hash = window.location.hash;
+  if (hash && hash.includes("registro-")) {
+    const type = hash.replace("#registro-", "");
+    if (formUrls[type]) {
+      loadForm(type);
+    }
   }
 }
 
@@ -366,5 +400,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initMathFloating();
   initCardTilt();
   initBackToTop();
-  initRegistrationSelector();
+  initRegistrationForms();
 });
