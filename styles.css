@@ -188,15 +188,6 @@ a {
   pointer-events: none;
 }
 
-.grid-pattern {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  color: var(--foreground);
-  opacity: 0.035;
-}
-
 .blob {
   position: absolute;
   border-radius: 999px;
@@ -288,6 +279,7 @@ a {
   vertical-align: middle;
   margin-right: 8px;
 }
+
 .hero-kicker {
   margin: 1.15rem 0 0.35rem;
   color: var(--primary-dark);
@@ -357,12 +349,6 @@ a {
   backdrop-filter: blur(18px);
 }
 
-.info-pill .icon {
-  width: 1.15rem;
-  height: 1.15rem;
-  color: var(--primary);
-}
-
 .info-pill span {
   font-size: 0.9rem;
   font-weight: 800;
@@ -376,57 +362,6 @@ a {
 .hero-action {
   min-width: 165px;
   justify-content: center;
-}
-
-.countdown-section {
-  animation: fadeInUp 0.7s ease 0.48s both;
-}
-
-.countdown-label {
-  margin-bottom: 0.85rem;
-  color: var(--muted-foreground);
-  font-size: 0.84rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.countdown {
-  display: flex;
-  justify-content: center;
-  gap: 0.85rem;
-}
-
-.countdown-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.55rem;
-}
-
-.countdown-value {
-  min-width: 4.35rem;
-  height: 4.35rem;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 1.05rem;
-  color: #fff;
-  background:
-    radial-gradient(circle at top left, rgba(230, 120, 23, 0.55), transparent 55%),
-    linear-gradient(135deg, #1E1E1E, #353535);
-  box-shadow: var(--shadow-lg);
-  font-size: 1.55rem;
-  font-weight: 900;
-  font-variant-numeric: tabular-nums;
-}
-
-.countdown-unit {
-  color: var(--muted-foreground);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
 }
 
 /* ================= Navigation tabs ================= */
@@ -585,10 +520,6 @@ a {
   letter-spacing: -0.08em;
 }
 
-.no-margin {
-  margin: 0;
-}
-
 @media (min-width: 800px) {
   .section-mark { display: inline-block; }
 }
@@ -686,12 +617,6 @@ a {
   width: 2.65rem;
   height: 2.65rem;
   border-radius: 0.9rem;
-}
-
-.info-card-icon .icon,
-.feature-icon .icon {
-  width: 1.25rem;
-  height: 1.25rem;
 }
 
 .info-card h4,
@@ -813,38 +738,6 @@ a {
   transform: translateY(-2px);
 }
 
-/* ================= Speakers ================= */
-.speaker-grid {
-  margin-top: 1.25rem;
-}
-
-.speaker-card {
-  position: relative;
-  overflow: hidden;
-  min-height: 210px;
-}
-
-.speaker-avatar {
-  width: 4.25rem;
-  height: 4.25rem;
-  margin-bottom: 1rem;
-  border-radius: 1.25rem;
-  color: #fff;
-  background: linear-gradient(135deg, var(--primary), #F0A451);
-  box-shadow: var(--shadow-primary);
-  font-size: 1.35rem;
-  font-weight: 900;
-}
-
-.status-pill {
-  margin-top: 1rem;
-  padding: 0.42rem 0.76rem;
-  background: var(--primary-soft);
-  box-shadow: none;
-  font-size: 0.74rem;
-  text-transform: uppercase;
-}
-
 /* ================= Registration and steps ================= */
 .registration-steps {
   margin: 1.35rem 0;
@@ -881,129 +774,6 @@ a {
   color: var(--primary-dark);
   font-size: 1.25rem;
   font-weight: 900;
-}
-
-.table-container {
-  width: 100%;
-  margin: 1.25rem 0;
-  overflow-x: auto;
-  border: 1px solid rgba(24, 24, 24, 0.08);
-  border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.72);
-  box-shadow: var(--shadow-sm);
-}
-
-.pricing-table {
-  width: 100%;
-  min-width: 650px;
-  border-collapse: collapse;
-}
-
-.pricing-table th,
-.pricing-table td {
-  padding: 1rem;
-  text-align: left;
-  vertical-align: top;
-}
-
-.pricing-table th {
-  color: #fff;
-  background: linear-gradient(135deg, var(--secondary), var(--secondary-2));
-  font-size: 0.85rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-.pricing-table td {
-  border-bottom: 1px solid rgba(24, 24, 24, 0.07);
-  color: var(--muted-foreground);
-  font-size: 0.92rem;
-}
-
-.pricing-table tr:last-child td {
-  border-bottom: none;
-}
-
-.pricing-table tbody tr:nth-child(even) td {
-  background: rgba(243, 238, 231, 0.45);
-}
-
-.pricing-table td strong {
-  color: var(--foreground);
-}
-
-.payment-list {
-  display: grid;
-  gap: 0.7rem;
-  margin: 1rem 0 0;
-  list-style: none;
-}
-
-.payment-list li {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  color: var(--muted-foreground);
-  font-weight: 650;
-}
-
-.bullet {
-  width: 0.55rem;
-  height: 0.55rem;
-  border-radius: 50%;
-  background: var(--primary);
-  box-shadow: 0 0 0 5px var(--primary-soft);
-}
-
-/* ================= Timeline ================= */
-.timeline,
-.featured-timeline {
-  position: relative;
-  display: grid;
-  gap: 0.8rem;
-  margin: 1.25rem 0;
-}
-
-.timeline-item {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.timeline-dot {
-  width: 0.95rem;
-  height: 0.95rem;
-  border: 3px solid rgba(255, 255, 255, 0.95);
-  border-radius: 50%;
-  background: var(--primary);
-  box-shadow: 0 0 0 5px var(--primary-soft);
-  flex-shrink: 0;
-}
-
-.timeline-content {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.92rem 1rem;
-  border: 1px solid rgba(24, 24, 24, 0.07);
-  border-radius: var(--radius);
-  background: rgba(255, 255, 255, 0.72);
-}
-
-.timeline-title {
-  color: var(--foreground);
-  font-weight: 850;
-}
-
-.timeline-date {
-  color: var(--primary-dark);
-  font-size: 0.86rem;
-  font-weight: 850;
-  white-space: nowrap;
 }
 
 /* ================= Venue Section ================= */
@@ -1223,41 +993,6 @@ a {
   line-height: 1.55;
 }
 
-.schedule-list {
-  display: grid;
-  gap: 0.8rem;
-  margin: 1.35rem 0;
-}
-
-.schedule-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 1rem;
-  border: 1px solid rgba(24, 24, 24, 0.08);
-  border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.68);
-}
-
-.schedule-number {
-  width: 2.2rem;
-  height: 2.2rem;
-  border-radius: 0.8rem;
-  color: #fff;
-  background: var(--primary);
-  font-weight: 900;
-}
-
-.schedule-day {
-  color: var(--foreground);
-  font-weight: 900;
-}
-
-.schedule-activity {
-  color: var(--muted-foreground);
-  font-size: 0.91rem;
-}
-
 /* ================= Awards and memories ================= */
 .award-card {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.80), rgba(230, 120, 23, 0.08));
@@ -1273,39 +1008,6 @@ a {
 
 .memory-card .btn-secondary {
   margin-top: 1rem;
-}
-
-.placeholder-card {
-  display: grid;
-  place-items: center;
-  min-height: 155px;
-  text-align: center;
-  color: var(--muted-foreground);
-  background:
-    repeating-linear-gradient(135deg, rgba(230, 120, 23, 0.05) 0 10px, rgba(255, 255, 255, 0.70) 10px 20px);
-}
-
-/* ================= Contact ================= */
-.contact-label {
-  color: var(--muted-foreground);
-  font-size: 0.82rem;
-  font-weight: 750;
-}
-
-.contact-value {
-  color: var(--foreground);
-  font-weight: 850;
-  text-decoration: none;
-}
-
-a.contact-value:hover {
-  color: var(--primary);
-}
-
-.contact-item .icon {
-  width: 1.25rem;
-  height: 1.25rem;
-  color: var(--primary);
 }
 
 /* ================= Notes and buttons ================= */
@@ -1472,8 +1174,8 @@ a.contact-value:hover {
   50% { transform: translateY(-18px) rotate(6deg); }
 }
 
-.animate-in {
-  animation: fadeInUp 0.55s ease both;
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
 /* ================= Scrollbar ================= */
@@ -1522,10 +1224,6 @@ a.contact-value:hover {
   .venue-card {
     grid-template-columns: 1fr;
   }
-
-  .venue-visual {
-    min-height: 220px;
-  }
 }
 
 @media (max-width: 720px) {
@@ -1547,16 +1245,6 @@ a.contact-value:hover {
 
   .math-orbit {
     display: none;
-  }
-
-  .countdown {
-    gap: 0.5rem;
-  }
-
-  .countdown-value {
-    min-width: 3.65rem;
-    height: 3.65rem;
-    font-size: 1.25rem;
   }
 
   .tab-nav {
@@ -1583,14 +1271,9 @@ a.contact-value:hover {
   }
 
   .section-heading-row,
-  .timeline-content,
   .footer-container {
     flex-direction: column;
     align-items: flex-start;
-  }
-
-  .timeline-date {
-    white-space: normal;
   }
 
   .footer-info {
@@ -1614,17 +1297,6 @@ a.contact-value:hover {
   .hero-action {
     width: 100%;
   }
-
-  .countdown-value {
-    min-width: 3.05rem;
-    height: 3.05rem;
-    border-radius: 0.8rem;
-    font-size: 1.05rem;
-  }
-
-  .countdown-unit {
-    font-size: 0.62rem;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1636,344 +1308,11 @@ a.contact-value:hover {
   }
 }
 
-/* ================= Registration Type Selector ================= */
-.registration-type-selector {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1rem;
-  margin: 1.5rem 0;
-}
-
-.reg-type-btn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.85rem;
-  padding: 1.5rem 1rem;
-  border: 2px solid rgba(24, 24, 24, 0.08);
-  border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.68);
-  cursor: pointer;
-  font: inherit;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.reg-type-btn:hover {
-  transform: translateY(-4px);
-  border-color: var(--border-strong);
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: var(--shadow-md);
-}
-
-.reg-type-btn.active {
-  border-color: var(--primary);
-  background: var(--primary-soft);
-  box-shadow: var(--shadow-primary);
-}
-
-.reg-type-btn.active .reg-type-icon {
-  background: linear-gradient(135deg, var(--primary), #F0A451);
-  color: #fff;
-}
-
-.reg-type-icon {
-  width: 3.5rem;
-  height: 3.5rem;
-  display: grid;
-  place-items: center;
-  border-radius: 1rem;
-  background: var(--primary-soft);
-  color: var(--primary);
-  transition: all 0.3s ease;
-}
-
-.reg-type-icon .icon {
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-.reg-type-info h4 {
-  margin: 0 0 0.25rem;
-  color: var(--foreground);
-  font-size: 1rem;
-  font-weight: 900;
-}
-
-.reg-type-info p {
-  margin: 0;
-  color: var(--muted-foreground);
-  font-size: 0.82rem;
-  line-height: 1.4;
-}
-
-/* Registration Form Container */
-.registration-form-container {
-  margin: 2rem 0 1.5rem;
-  min-height: 600px;
-  border: 1px solid rgba(24, 24, 24, 0.08);
-  border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.85);
-  overflow: hidden;
-}
-
-.form-placeholder,
-.form-loading {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  min-height: 400px;
-  padding: 2rem;
-  text-align: center;
-  color: var(--muted-foreground);
-}
-
-.placeholder-icon,
-.form-loading .icon {
-  width: 4rem;
-  height: 4rem;
-  display: grid;
-  place-items: center;
-  border-radius: 1.25rem;
-  background: var(--primary-soft);
-  color: var(--primary);
-}
-
-.placeholder-icon .icon {
-  width: 2rem;
-  height: 2rem;
-}
-
-.form-placeholder p,
-.form-loading p {
-  max-width: 320px;
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-.loading-spinner {
-  width: 3rem;
-  height: 3rem;
-  border: 4px solid var(--primary-soft);
-  border-top-color: var(--primary);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-.registration-iframe {
-  width: 100%;
-  min-height: 700px;
-  border: none;
-  background: #fff;
-}
-
-/* Status pill active state */
-.status-pill.status-active {
-  background: linear-gradient(135deg, #10b981, #34d399);
-  color: #fff;
-  border-color: transparent;
-}
-
-/* Responsive adjustments for registration selector */
-@media (max-width: 900px) {
-  .registration-type-selector {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 520px) {
-  .registration-type-selector {
-    grid-template-columns: 1fr;
-  }
-  
-  .reg-type-btn {
-    flex-direction: row;
-    text-align: left;
-    padding: 1rem;
-  }
-  
-  .reg-type-icon {
-    width: 3rem;
-    height: 3rem;
-  }
-  
-  .reg-type-icon .icon {
-    width: 1.25rem;
-    height: 1.25rem;
-  }
-  
-  .registration-form-container {
-    min-height: 500px;
-  }
-  
-  .registration-iframe {
-    min-height: 600px;
-  }
-}
-
-/* ================= Registro con formularios por categoría ================= */
+/* ================= Registro - Seccion con seleccion de categoria ================= */
 
 .registration-section {
-  text-align: center;
+  text-align: left;
 }
-
-.registration-section .section-text {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.form-intro {
-  max-width: 850px;
-  margin: 0 auto 1.8rem;
-}
-
-.registration-card {
-  width: 100%;
-  max-width: 1050px;
-  margin: 0 auto;
-  overflow: hidden;
-  border: 1px solid rgba(230, 120, 23, 0.22);
-  border-radius: var(--radius-xl);
-  background:
-    radial-gradient(circle at top left, rgba(230, 120, 23, 0.12), transparent 34%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(250, 247, 242, 0.94));
-  box-shadow: var(--shadow-lg);
-}
-
-/* Pestañas internas */
-.registration-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  justify-content: center;
-  padding: 1.2rem;
-  border-bottom: 1px solid rgba(24, 24, 24, 0.08);
-  background:
-    linear-gradient(135deg, rgba(230, 120, 23, 0.10), rgba(255, 255, 255, 0.72));
-}
-
-.registration-tab {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 2.7rem;
-  padding: 0.75rem 1.15rem;
-  border: 1px solid rgba(230, 120, 23, 0.25);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.78);
-  color: var(--primary-dark);
-  font-family: inherit;
-  font-size: 0.9rem;
-  font-weight: 850;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.registration-tab:hover {
-  transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: var(--shadow-sm);
-}
-
-.registration-tab.active {
-  color: #ffffff;
-  background: linear-gradient(135deg, var(--primary), #F0A451);
-  box-shadow: var(--shadow-primary);
-}
-
-/* Paneles */
-.registration-forms {
-  width: 100%;
-}
-
-.registration-form-panel {
-  display: none;
-  width: 100%;
-}
-
-.registration-form-panel.active {
-  display: block;
-}
-
-.registration-form-header {
-  padding: 1.35rem 1.5rem 1rem;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.78);
-}
-
-.registration-form-header h3 {
-  margin: 0;
-  color: var(--foreground);
-  font-size: clamp(1.25rem, 2vw, 1.7rem);
-  font-weight: 900;
-  letter-spacing: -0.03em;
-}
-
-.registration-form-header p {
-  max-width: 720px;
-  margin: 0.35rem auto 0;
-  color: var(--muted-foreground);
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-/* Iframe ancho completo */
-.registration-iframe-wrapper {
-  width: 100%;
-  height: 1350px;
-  padding: 0;
-  overflow: hidden;
-  background: #ffffff;
-}
-
-.registration-iframe-wrapper iframe {
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-width: 100%;
-  border: 0;
-  background: #ffffff;
-}
-
-/* Responsive */
-@media (max-width: 720px) {
-  .registration-tabs {
-    padding: 1rem;
-    gap: 0.5rem;
-  }
-
-  .registration-tab {
-    flex: 1 1 calc(50% - 0.5rem);
-    padding: 0.7rem 0.9rem;
-    font-size: 0.84rem;
-  }
-
-  .registration-card {
-    border-radius: var(--radius-lg);
-  }
-
-  .registration-iframe-wrapper {
-    height: 1500px;
-  }
-}
-
-@media (max-width: 440px) {
-  .registration-tab {
-    flex: 1 1 100%;
-  }
-
-  .registration-iframe-wrapper {
-    height: 1650px;
-  }
-}
-
-/* ================= Registro - Nueva seccion ================= */
 
 .registration-header {
   display: flex;
@@ -2035,6 +1374,7 @@ a.contact-value:hover {
   cursor: pointer;
   transition: all 0.25s ease;
   text-align: center;
+  font: inherit;
 }
 
 .reg-type-btn:hover {
@@ -2128,17 +1468,13 @@ a.contact-value:hover {
   font-weight: 600;
 }
 
-.spinner {
+.loading-spinner {
   width: 2.5rem;
   height: 2.5rem;
   border: 3px solid var(--muted);
   border-top-color: var(--primary);
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
 }
 
 /* Iframe del formulario */
