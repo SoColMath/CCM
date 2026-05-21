@@ -313,10 +313,10 @@ function initRegistrationForms() {
 
   // URLs de los formularios de WordPress (reemplaza con los tuyos)
   const formUrls = {
-    estudiantes: "https://scm.org.co/web/?elementor_library=congreso-xxv-estudiantes",
-    socios: "https://scm.org.co/web/?elementor_library=congreso-xxv-socios-scm",
-    profesionales: "https://scm.org.co/web/?elementor_library=congreso-xxv-profesionales",
-    profesores: "https://scm.org.co/web/?elementor_library=congreso-xxv-profesores"
+    estudiantes: "https://docs.google.com/forms/d/e/1FAIpQLSdbggoeFJeIsXZ0GAsNm0G1y_4MXHQ0UbIhwxZJ0lbgDb__PQ/viewform?usp=publish-editor",
+    socios: "https://docs.google.com/forms/d/e/1FAIpQLSdbggoeFJeIsXZ0GAsNm0G1y_4MXHQ0UbIhwxZJ0lbgDb__PQ/viewform?usp=publish-editor",
+    profesionales: "https://docs.google.com/forms/d/e/1FAIpQLSf_ZmT9pSIQRu0AS-VPKCEdbr69XWEhZkmXcF3wTFJU6wKrQA/viewform?usp=publish-editor",
+    profesores: "https://docs.google.com/forms/d/e/1FAIpQLSeHEWmHGYL-_e8WJudJ2RKTFOmjM9g_rqjrQRV0GhEH-yCW7w/viewform?usp=publish-editor"
   };
 
   // Títulos de cada formulario
