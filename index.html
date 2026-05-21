@@ -224,123 +224,123 @@
 
     <!-- ================= Registro ================= -->
     <!-- ================= Registro ================= -->
-<section class="tab-content" id="registro">
+<section class="tab-content" id="tab-registro">
 
   <div class="section-card registration-section">
 
-    <div class="form-intro">
-      <span class="eyebrow">Registro</span>
-
-      <h2 class="section-title">
-        Formulario de inscripción
-      </h2>
-
-      <p class="section-text">
-        Selecciona el tipo de registro que corresponde a tu participación en el
-        <strong>XXV Congreso Colombiano de Matemáticas</strong>.
-      </p>
+    <!-- Encabezado con badges -->
+    <div class="registration-header">
+      <span class="eyebrow">Inscripcion</span>
+      <span class="status-badge status-open">ABIERTO</span>
     </div>
 
-    <div class="registration-card">
+    <h2 class="section-title">Registro</h2>
 
-      <!-- Pestañas internas -->
-      <div class="registration-tabs">
-        <button class="registration-tab active" data-form="form-estudiantes">
-          Estudiantes
-        </button>
+    <p class="section-text">
+      Seleccione su tipo de participante para acceder al formulario de registro correspondiente.
+    </p>
 
-        <button class="registration-tab" data-form="form-socios">
-          Socios SCM
-        </button>
-
-        <button class="registration-tab" data-form="form-profesionales">
-          Profesionales
-        </button>
-
-        <button class="registration-tab" data-form="form-profesores">
-          Profesores
-        </button>
+    <!-- Pasos del proceso -->
+    <div class="registration-steps">
+      <div class="step-card">
+        <div class="step-number">01</div>
+        <h4>Seleccionar categoria</h4>
+        <p>Escoja el tipo de participante que corresponda a su perfil.</p>
       </div>
 
-      <!-- Formularios -->
-      <div class="registration-forms">
-
-        <!-- Estudiantes -->
-        <div class="registration-form-panel active" id="form-estudiantes">
-          <div class="registration-form-header">
-            <h3>Registro - Estudiantes</h3>
-            <p>Diligencia este formulario si tu inscripción corresponde a la categoría de estudiantes.</p>
-          </div>
-
-          <div class="registration-iframe-wrapper">
-            <iframe
-              src="https://docs.google.com/forms/d/e/1FAIpQLSeeH_aYWGZ1P4DaSewg0-ALLF-iFhgrVMQIxX6xPT61BjRbew/viewform?embedded=true"
-              frameborder="0"
-              marginheight="0"
-              marginwidth="0">
-              Cargando…
-            </iframe>
-          </div>
-        </div>
-
-        <!-- Socios SCM -->
-        <div class="registration-form-panel" id="form-socios">
-          <div class="registration-form-header">
-            <h3>Registro - Socios SCM</h3>
-            <p>Diligencia este formulario si eres socio o socia de la Sociedad Colombiana de Matemáticas.</p>
-          </div>
-
-          <div class="registration-iframe-wrapper">
-            <!-- Cuando tengas el formulario de Socios SCM, cambia solo el src -->
-            <iframe
-              src="https://docs.google.com/forms/d/e/1FAIpQLSeeH_aYWGZ1P4DaSewg0-ALLF-iFhgrVMQIxX6xPT61BjRbew/viewform?embedded=true"
-              frameborder="0"
-              marginheight="0"
-              marginwidth="0">
-              Cargando…
-            </iframe>
-          </div>
-        </div>
-
-        <!-- Profesionales -->
-        <div class="registration-form-panel" id="form-profesionales">
-          <div class="registration-form-header">
-            <h3>Registro - Profesionales</h3>
-            <p>Diligencia este formulario si tu inscripción corresponde a la categoría de profesionales.</p>
-          </div>
-
-          <div class="registration-iframe-wrapper">
-            <!-- Cuando tengas el formulario de Profesionales, cambia solo el src -->
-            <iframe
-              src="https://docs.google.com/forms/d/e/1FAIpQLSeeH_aYWGZ1P4DaSewg0-ALLF-iFhgrVMQIxX6xPT61BjRbew/viewform?embedded=true"
-              frameborder="0"
-              marginheight="0"
-              marginwidth="0">
-              Cargando…
-            </iframe>
-          </div>
-        </div>
-
-        <!-- Profesores -->
-        <div class="registration-form-panel" id="form-profesores">
-          <div class="registration-form-header">
-            <h3>Registro - Profesores</h3>
-            <p>Diligencia este formulario si tu inscripción corresponde a la categoría de profesores.</p>
-          </div>
-
-          <div class="registration-iframe-wrapper">
-            <!-- Cuando tengas el formulario de Profesores, cambia solo el src -->
-            <iframe
-              src="https://docs.google.com/forms/d/e/1FAIpQLSeeH_aYWGZ1P4DaSewg0-ALLF-iFhgrVMQIxX6xPT61BjRbew/viewform?embedded=true"
-              frameborder="0"
-              marginheight="0"
-              marginwidth="0">
-              Cargando…
-            </iframe>
-          </div>
-        </div>
-
+      <div class="step-card">
+        <div class="step-number">02</div>
+        <h4>Completar formulario</h4>
+        <p>Diligenciar los datos personales, institucionales y de participacion.</p>
       </div>
+
+      <div class="step-card">
+        <div class="step-number">03</div>
+        <h4>Confirmar inscripcion</h4>
+        <p>Recibir la confirmacion oficial al correo electronico registrado.</p>
+      </div>
+    </div>
+
+    <!-- Seleccion de tipo de registro -->
+    <h3 class="section-subtitle">Seleccione su tipo de registro</h3>
+
+    <div class="reg-type-grid">
+      <button class="reg-type-btn" data-type="estudiantes" type="button">
+        <span class="reg-type-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+            <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/>
+          </svg>
+        </span>
+        <span class="reg-type-label">Estudiantes</span>
+        <span class="reg-type-desc">Pregrado y posgrado</span>
+      </button>
+
+      <button class="reg-type-btn" data-type="socios" type="button">
+        <span class="reg-type-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </span>
+        <span class="reg-type-label">Socios SCM</span>
+        <span class="reg-type-desc">Miembros activos</span>
+      </button>
+
+      <button class="reg-type-btn" data-type="profesionales" type="button">
+        <span class="reg-type-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+          </svg>
+        </span>
+        <span class="reg-type-label">Profesionales</span>
+        <span class="reg-type-desc">Sector publico y privado</span>
+      </button>
+
+      <button class="reg-type-btn" data-type="profesores" type="button">
+        <span class="reg-type-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+            <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/>
+            <circle cx="12" cy="10" r="2"/>
+          </svg>
+        </span>
+        <span class="reg-type-label">Profesores</span>
+        <span class="reg-type-desc">Docentes e investigadores</span>
+      </button>
+    </div>
+
+    <!-- Contenedor del formulario (oculto inicialmente) -->
+    <div id="registration-form-container" class="registration-form-container" style="display: none;">
+      
+      <div class="form-header">
+        <button type="button" class="btn-back" id="btn-change-category">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          Cambiar categoria
+        </button>
+        <h3 id="form-title">Formulario de registro</h3>
+      </div>
+
+      <!-- Loading -->
+      <div id="form-loading" class="form-loading">
+        <div class="spinner"></div>
+        <p>Cargando formulario...</p>
+      </div>
+
+      <!-- Iframe del formulario -->
+      <iframe 
+        id="registration-iframe" 
+        class="registration-iframe"
+        frameborder="0" 
+        marginheight="0" 
+        marginwidth="0"
+        style="display: none;">
+      </iframe>
 
     </div>
 
