@@ -402,3 +402,32 @@ document.addEventListener("DOMContentLoaded", () => {
   initBackToTop();
   initRegistrationForms();
 });
+
+/* ================= Pestañas internas de registro ================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+  const registrationTabs = document.querySelectorAll(".registration-tab");
+  const registrationPanels = document.querySelectorAll(".registration-form-panel");
+
+  registrationTabs.forEach((tab) => {
+    tab.addEventListener("click", function () {
+      const targetForm = this.getAttribute("data-form");
+
+      registrationTabs.forEach((item) => {
+        item.classList.remove("active");
+      });
+
+      registrationPanels.forEach((panel) => {
+        panel.classList.remove("active");
+      });
+
+      this.classList.add("active");
+
+      const selectedPanel = document.getElementById(targetForm);
+
+      if (selectedPanel) {
+        selectedPanel.classList.add("active");
+      }
+    });
+  });
+});
