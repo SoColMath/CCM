@@ -311,9 +311,9 @@ function initRegistrationForms() {
 
   if (!typeButtons.length || !formContainer) return;
 
-  // URLs de los formularios de WordPress (reemplaza con los tuyos)
+  // URLs de los formularios de WordPress 
   const formUrls = {
-    estudiantes: "https://docs.google.com/forms/d/e/1FAIpQLSeeH_aYWGZ1P4DaSewg0-ALLF-iFhgrVMQIxX6xPT61BjRbew/viewform?usp=dialog",
+    estudiantes: "https://forms.gle/qC5JN6r1LNrKw2J18",
     socios: "https://docs.google.com/forms/d/e/1FAIpQLSdbggoeFJeIsXZ0GAsNm0G1y_4MXHQ0UbIhwxZJ0lbgDb__PQ/viewform?usp=publish-editor",
     profesionales: "https://docs.google.com/forms/d/e/1FAIpQLSf_ZmT9pSIQRu0AS-VPKCEdbr69XWEhZkmXcF3wTFJU6wKrQA/viewform?usp=publish-editor",
     profesores: "https://docs.google.com/forms/d/e/1FAIpQLSeHEWmHGYL-_e8WJudJ2RKTFOmjM9g_rqjrQRV0GhEH-yCW7w/viewform?usp=publish-editor"
