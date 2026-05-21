@@ -205,14 +205,6 @@ a {
   opacity: 0.95;
   transform: translateZ(0);
 }
-.hero-badge-logo {
-  width: 8px;
-  height: 8px;
-  object-fit: contain;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 8px;
-}
 
 .blob-1 {
   top: 9rem;
@@ -285,6 +277,14 @@ a {
   animation: fadeInUp 0.7s ease both;
 }
 
+.hero-badge-logo {
+  width: 8px;
+  height: 8px;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+}
 .hero-kicker {
   margin: 1.15rem 0 0.35rem;
   color: var(--primary-dark);
