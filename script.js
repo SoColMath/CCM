@@ -431,3 +431,110 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// ======================================================
+// Sistema de registro con seleccion de categoria
+// ======================================================
+function initRegistrationForms() {
+  const typeButtons = document.querySelectorAll(".reg-type-btn");
+  const formContainer = document.getElementById("registration-form-container");
+  const loading = document.getElementById("form-loading");
+  const iframe = document.getElementById("registration-iframe");
+  const formTitle = document.getElementById("form-title");
+  const btnChangeCategory = document.getElementById("btn-change-category");
+
+  if (!typeButtons.length || !iframe || !formContainer) return;
+
+  // URLs de los formularios de Google Forms (reemplaza con los tuyos)
+  const formUrls = {
+    estudiantes: "https://docs.google.com/forms/d/e/TU_FORM_ESTUDIANTES/viewform?embedded=true",
+    socios: "https://docs.google.com/forms/d/e/TU_FORM_SOCIOS/viewform?embedded=true",
+    profesionales: "https://docs.google.com/forms/d/e/TU_FORM_PROFESIONALES/viewform?embedded=true",
+    profesores: "https://docs.google.com/forms/d/e/TU_FORM_PROFESORES/viewform?embedded=true"
+  };
+
+  // Titulos de cada formulario
+  const formTitles = {
+    estudiantes: "Registro - Estudiantes",
+    socios: "Registro - Socios SCM",
+    profesionales: "Registro - Profesionales",
+    profesores: "Registro - Profesores"
+  };
+
+  function loadForm(type) {
+    const url = formUrls[type];
+    if (!url) return;
+
+    // Actualizar botones activos
+    typeButtons.forEach((btn) => {
+      btn.classList.remove("active");
+      if (btn.getAttribute("data-type") === type) {
+        btn.classList.add("active");
+      }
+    });
+
+    // Mostrar contenedor del formulario
+    formContainer.style.display = "block";
+
+    // Actualizar titulo
+    if (formTitle) {
+      formTitle.textContent = formTitles[type] || "Formulario de registro";
+    }
+
+    // Mostrar loading, ocultar iframe
+    if (loading) loading.style.display = "flex";
+    iframe.style.display = "none";
+
+    // Cargar el iframe
+    iframe.src = url;
+
+    // Cuando el iframe cargue, mostrar y ocultar loading
+    iframe.onload = function () {
+      if (loading) loading.style.display = "none";
+      iframe.style.display = "block";
+
+      // Scroll suave al contenedor del formulario
+      formContainer.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    };
+
+    // Timeout en caso de que el iframe tarde mucho
+    setTimeout(function () {
+      if (loading && loading.style.display === "flex") {
+        loading.style.display = "none";
+        iframe.style.display = "block";
+      }
+    }, 8000);
+  }
+
+  function hideForm() {
+    // Ocultar contenedor del formulario
+    formContainer.style.display = "none";
+    iframe.src = "";
+
+    // Quitar clase activa de todos los botones
+    typeButtons.forEach((btn) => {
+      btn.classList.remove("active");
+    });
+  }
+
+  // Event listeners para los botones de tipo
+  typeButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const type = this.getAttribute("data-type");
+      loadForm(type);
+    });
+  });
+
+  // Boton para cambiar categoria
+  if (btnChangeCategory) {
+    btnChangeCategory.addEventListener("click", hideForm);
+  }
+}
+
+// Llamar la funcion cuando el DOM este listo
+document.addEventListener("DOMContentLoaded", function() {
+  initRegistrationForms();
+});
