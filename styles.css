@@ -202,6 +202,7 @@ a {
     radial-gradient(circle at 60% 58%, rgba(232, 119, 34, 0.055), transparent 30%),
     radial-gradient(circle at 42% 66%, rgba(46, 158, 79, 0.045), transparent 28%);
   filter: blur(8px);
+  animation: heroGlowFloat 14s ease-in-out infinite alternate;
 }
 
 /* Curva amplia envolvente muy tenue */
@@ -213,6 +214,7 @@ a {
   background-position: center 42%;
   background-size: 118% auto;
   opacity: 1;
+  animation: heroLineDrift 22s ease-in-out infinite alternate;
 }
 
 .hero-pattern {
@@ -242,6 +244,7 @@ a {
     radial-gradient(ellipse 45% 42% at 3% 92%, #000 0%, transparent 72%),
     radial-gradient(ellipse 44% 40% at 98% 5%, #000 0%, transparent 70%),
     radial-gradient(ellipse 32% 24% at 78% 52%, rgba(0, 0, 0, 0.65) 0%, transparent 72%);
+  animation: heroDotPulse 18s ease-in-out infinite alternate;
 }
 
 /* Ondas topográficas más envolventes, laterales y diagonales */
@@ -257,6 +260,81 @@ a {
   background-position: right top, left bottom, center center;
   background-size: 48% auto, 47% auto, 100% auto;
   opacity: 1;
+  animation: heroWaveDrift 24s ease-in-out infinite alternate;
+}
+
+@keyframes heroGlowFloat {
+  0% {
+    transform: translateX(-50%) translateY(0) scale(1);
+    opacity: 0.88;
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(12px) scale(1.035);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-50%) translateY(-8px) scale(0.985);
+    opacity: 0.9;
+  }
+}
+
+@keyframes heroLineDrift {
+  0% {
+    background-position: center 42%;
+    background-size: 118% auto;
+    opacity: 0.82;
+  }
+
+  50% {
+    background-position: center 39%;
+    background-size: 122% auto;
+    opacity: 0.98;
+  }
+
+  100% {
+    background-position: center 45%;
+    background-size: 116% auto;
+    opacity: 0.86;
+  }
+}
+
+@keyframes heroDotPulse {
+  0% {
+    background-position: 0 0, 16px 18px, 22px 12px;
+    opacity: 0.72;
+  }
+
+  50% {
+    background-position: 10px 14px, 26px 6px, 14px 24px;
+    opacity: 0.92;
+  }
+
+  100% {
+    background-position: -8px 20px, 30px 22px, 30px 2px;
+    opacity: 0.78;
+  }
+}
+
+@keyframes heroWaveDrift {
+  0% {
+    background-position: right top, left bottom, center center;
+    background-size: 48% auto, 47% auto, 100% auto;
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    background-position: calc(100% + 18px) 18px, -18px calc(100% - 12px), center 48%;
+    background-size: 50% auto, 49% auto, 104% auto;
+    transform: translate3d(0, 6px, 0);
+  }
+
+  100% {
+    background-position: calc(100% - 12px) -14px, 16px calc(100% + 18px), center 52%;
+    background-size: 47% auto, 46% auto, 98% auto;
+    transform: translate3d(0, -4px, 0);
+  }
 }
 
 .hero-content {
