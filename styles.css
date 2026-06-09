@@ -175,15 +175,51 @@ a { color: inherit; }
   border-bottom: 1px solid var(--border);
 }
 
-/* patrón sutil de puntos, eco del logo */
+/* Fondo del hero: ondas finas en esquinas + halftone sutil.
+   Composición limpia y académica, sin interferir con el logo central. */
 .hero-pattern {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background-image: radial-gradient(rgba(14, 124, 142, 0.10) 1.5px, transparent 1.5px);
-  background-size: 26px 26px;
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 35%, #000 0%, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 35%, #000 0%, transparent 75%);
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Puntos halftone muy suaves, agrupados solo en las esquinas
+   (superior derecha e inferior izquierda) para no tocar el centro. */
+.hero-pattern::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(rgba(14, 124, 142, 0.16) 1.4px, transparent 1.6px),
+    radial-gradient(rgba(45, 109, 168, 0.13) 1.4px, transparent 1.6px);
+  background-position: 0 0, 11px 11px;
+  background-size: 22px 22px, 22px 22px;
+  /* visible únicamente hacia las dos esquinas diagonales */
+  -webkit-mask-image:
+    radial-gradient(ellipse 42% 46% at 100% 0%, #000 0%, transparent 70%),
+    radial-gradient(ellipse 42% 46% at 0% 100%, #000 0%, transparent 70%);
+  mask-image:
+    radial-gradient(ellipse 42% 46% at 100% 0%, #000 0%, transparent 70%),
+    radial-gradient(ellipse 42% 46% at 0% 100%, #000 0%, transparent 70%);
+  -webkit-mask-composite: source-over;
+  mask-composite: add;
+}
+
+/* Ondas curvas finas tipo topográfico.
+   SVG en línea: bundle superior derecho + bundle inferior izquierdo. */
+.hero-pattern::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat, no-repeat;
+  background-position: top -60px right -60px, bottom -60px left -60px;
+  background-size: clamp(320px, 38vw, 560px) clamp(320px, 38vw, 560px),
+                   clamp(320px, 38vw, 560px) clamp(320px, 38vw, 560px);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='560' height='560' viewBox='0 0 560 560'%3E%3Cg fill='none' stroke-width='1.3' stroke-linecap='round'%3E%3Cpath stroke='%230E7C8E' stroke-opacity='0.30' d='M560 30 C440 70 470 150 360 185 C250 220 270 320 150 360 C70 388 40 470 30 560'/%3E%3Cpath stroke='%230E7C8E' stroke-opacity='0.24' d='M560 80 C450 122 482 200 372 236 C262 272 286 368 168 408 C92 434 66 510 70 560'/%3E%3Cpath stroke='%232D6DA8' stroke-opacity='0.20' d='M560 132 C462 174 496 250 386 288 C276 326 302 414 188 454 C118 478 96 540 110 560'/%3E%3Cpath stroke='%232D6DA8' stroke-opacity='0.16' d='M560 186 C476 226 510 300 400 340 C292 378 320 462 210 500 C150 522 132 552 154 560'/%3E%3Cpath stroke='%2342A047' stroke-opacity='0.16' d='M560 242 C490 280 524 350 414 392 C308 430 338 506 236 542'/%3E%3C/g%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='560' height='560' viewBox='0 0 560 560'%3E%3Cg fill='none' stroke-width='1.3' stroke-linecap='round'%3E%3Cpath stroke='%230E7C8E' stroke-opacity='0.30' d='M0 530 C120 490 90 410 200 375 C310 340 290 240 410 200 C490 172 520 90 530 0'/%3E%3Cpath stroke='%230E7C8E' stroke-opacity='0.24' d='M0 480 C110 438 78 360 188 324 C298 288 274 192 392 152 C468 126 494 50 490 0'/%3E%3Cpath stroke='%232D6DA8' stroke-opacity='0.20' d='M0 428 C98 386 64 310 174 272 C284 234 258 146 372 106 C442 82 464 20 450 0'/%3E%3Cpath stroke='%232D6DA8' stroke-opacity='0.16' d='M0 374 C84 334 50 260 160 220 C268 182 240 98 350 60 C410 38 428 8 406 0'/%3E%3Cpath stroke='%2342A047' stroke-opacity='0.16' d='M0 318 C70 280 36 210 146 168 C252 130 222 54 324 18'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 .hero-content {
@@ -1187,6 +1223,24 @@ a { color: inherit; }
   }
 
   .footer-info { text-align: left; }
+}
+
+/* En móvil: ondas más pequeñas y suaves para no saturar el fondo */
+@media (max-width: 640px) {
+  .hero-pattern::after {
+    background-position: top -40px right -50px, bottom -40px left -50px;
+    background-size: 240px 240px, 240px 240px;
+    opacity: 0.7;
+  }
+
+  .hero-pattern::before {
+    -webkit-mask-image:
+      radial-gradient(ellipse 55% 30% at 100% 0%, #000 0%, transparent 70%),
+      radial-gradient(ellipse 55% 30% at 0% 100%, #000 0%, transparent 70%);
+    mask-image:
+      radial-gradient(ellipse 55% 30% at 100% 0%, #000 0%, transparent 70%),
+      radial-gradient(ellipse 55% 30% at 0% 100%, #000 0%, transparent 70%);
+  }
 }
 
 @media (max-width: 480px) {
