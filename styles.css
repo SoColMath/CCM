@@ -471,7 +471,7 @@ a {
   position: absolute;
   right: 1.25rem;
   bottom: 1rem;
-  color: rgba(230, 120, 23, 0.10);
+  color: rgba(0, 124, 146, 0.10);
   font-size: clamp(1.2rem, 3.6vw, 3.2rem);
   font-weight: 900;
   pointer-events: none;
@@ -523,7 +523,7 @@ a {
 
 .section-mark {
   display: none;
-  color: rgba(230, 120, 23, 0.12);
+  color: rgba(0, 124, 146, 0.12);
   font-size: 4.25rem;
   font-weight: 900;
   line-height: 0.8;
