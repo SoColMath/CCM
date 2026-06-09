@@ -175,15 +175,55 @@ a { color: inherit; }
   border-bottom: 1px solid var(--border);
 }
 
-/* patrón sutil de puntos, eco del logo */
+/* patrón de ondas topográficas + puntos halftone, esquinas superior-derecha e inferior-izquierda */
 .hero-pattern {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background-image: radial-gradient(rgba(14, 124, 142, 0.10) 1.5px, transparent 1.5px);
-  background-size: 26px 26px;
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 35%, #000 0%, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 35%, #000 0%, transparent 75%);
+  overflow: hidden;
+}
+
+/* Capa 1 — puntos halftone sutiles en cuadrícula, fade al centro */
+.hero-pattern::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(14, 124, 142, 0.13) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+  mask-image:
+    radial-gradient(ellipse 55% 55% at 96% 4%,   #000 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 4%  96%,   #000 0%, transparent 65%);
+  -webkit-mask-image:
+    radial-gradient(ellipse 55% 55% at 96% 4%,   #000 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 4%  96%,   #000 0%, transparent 65%);
+  mask-composite: add;
+  -webkit-mask-composite: source-over;
+}
+
+/* Capa 2 — ondas SVG topográficas, esquina superior-derecha */
+.hero-pattern::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='500' viewBox='0 0 600 500'%3E%3Cg fill='none' stroke='%230E7C8E' stroke-width='1.1' opacity='0.18'%3E%3Cpath d='M600,0 C520,40 480,100 540,160 C580,200 620,240 580,300 C540,360 460,370 480,440 C490,480 560,500 600,520'/%3E%3Cpath d='M600,30 C510,75 470,140 535,200 C575,240 615,280 570,340 C525,400 440,410 465,480'/%3E%3Cpath d='M600,65 C495,110 455,175 525,240 C565,280 600,320 555,380 C510,440 425,445 455,510'/%3E%3Cpath d='M600,105 C480,145 440,215 515,280 C558,322 585,358 535,420 C490,475 415,480 445,540'/%3E%3Cpath d='M600,150 C465,185 425,255 502,320 C548,363 568,396 515,458 C470,510 400,515 432,570'/%3E%3Cpath d='M600,200 C450,230 410,300 488,365 C536,408 553,440 496,500'/%3E%3C/g%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='500' viewBox='0 0 600 500'%3E%3Cg fill='none' stroke='%230D3B66' stroke-width='0.9' opacity='0.10'%3E%3Cpath d='M0,500 C80,460 120,400 60,340 C20,300 -20,260 20,200 C60,140 140,130 120,60 C110,20 40,0 0,-20'/%3E%3Cpath d='M0,470 C90,425 130,360 65,300 C25,260 -15,220 30,160 C75,100 160,90 135,25'/%3E%3Cpath d='M0,435 C105,390 145,325 75,260 C35,220 -5,180 42,118 C90,55 178,48 148,-8'/%3E%3Cpath d='M0,395 C120,355 158,288 85,220 C45,178 8,140 55,76 C105,12 195,6 162,-45'/%3E%3Cpath d='M0,350 C135,315 170,248 95,178 C55,136 22,98 72,32 C124,-32 212,-36 178,-82'/%3E%3Cpath d='M0,300 C150,270 182,202 104,130 C63,88 34,50 88,-18'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat, no-repeat;
+  background-position: right top, left bottom;
+  background-size: 46% auto, 42% auto;
+  opacity: 1;
+}
+
+/* En móvil las ondas son más pequeñas para no saturar */
+@media (max-width: 720px) {
+  .hero-pattern::after {
+    background-size: 65% auto, 60% auto;
+    opacity: 0.7;
+  }
+  .hero-pattern::before {
+    background-size: 32px 32px;
+    opacity: 0.8;
+  }
 }
 
 .hero-content {
