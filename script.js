@@ -3,53 +3,6 @@
 // Script principal
 // ======================================================
 
-// Fecha objetivo del congreso
-const CONGRESS_DATE = new Date("2027-06-08T08:00:00").getTime();
-
-// ======================================================
-// Cuenta regresiva
-// ======================================================
-function initCountdown() {
-  const daysEl = document.getElementById("days");
-  const hoursEl = document.getElementById("hours");
-  const minutesEl = document.getElementById("minutes");
-  const secondsEl = document.getElementById("seconds");
-
-  if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
-
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = CONGRESS_DATE - now;
-
-    if (distance <= 0) {
-      daysEl.textContent = "00";
-      hoursEl.textContent = "00";
-      minutesEl.textContent = "00";
-      secondsEl.textContent = "00";
-      return;
-    }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor(
-      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    );
-    const minutes = Math.floor(
-      (distance % (1000 * 60 * 60)) / (1000 * 60)
-    );
-    const seconds = Math.floor(
-      (distance % (1000 * 60)) / 1000
-    );
-
-    daysEl.textContent = days.toString().padStart(2, "0");
-    hoursEl.textContent = hours.toString().padStart(2, "0");
-    minutesEl.textContent = minutes.toString().padStart(2, "0");
-    secondsEl.textContent = seconds.toString().padStart(2, "0");
-  }
-
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-}
-
 // ======================================================
 // Sistema de pestañas
 // ======================================================
@@ -186,7 +139,7 @@ function initHeaderEffect() {
   if (!header) return;
 
   function updateHeader() {
-    if (window.scrollY > 80) {
+    if (window.scrollY > 20) {
       header.classList.add("header-scrolled");
     } else {
       header.classList.remove("header-scrolled");
@@ -194,108 +147,7 @@ function initHeaderEffect() {
   }
 
   updateHeader();
-  window.addEventListener("scroll", updateHeader);
-}
-
-// ======================================================
-// Animaciones de entrada al hacer scroll
-// ======================================================
-function initScrollAnimations() {
-  const animatedElements = document.querySelectorAll(
-    ".section-card, .stat-card, .speaker-card, .activity-card, .agenda-card, .memory-card, .cost-card, .info-card, .award-card"
-  );
-
-  if (!animatedElements.length) return;
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.12,
-      rootMargin: "0px 0px -40px 0px",
-    }
-  );
-
-  animatedElements.forEach((element, index) => {
-    element.classList.add("reveal-on-scroll");
-    element.style.transitionDelay = `${Math.min(index * 0.04, 0.35)}s`;
-    observer.observe(element);
-  });
-}
-
-// ======================================================
-// Movimiento sutil de elementos matemáticos del hero
-// ======================================================
-function initMathFloating() {
-  const floatingItems = document.querySelectorAll(".math-float");
-
-  if (!floatingItems.length) return;
-
-  floatingItems.forEach((item, index) => {
-    item.style.animationDelay = `${index * 0.7}s`;
-  });
-}
-
-// ======================================================
-// Efecto hover con inclinación muy suave en tarjetas
-// ======================================================
-function initCardTilt() {
-  const cards = document.querySelectorAll(
-    ".stat-card, .speaker-card, .activity-card, .cost-card, .memory-card"
-  );
-
-  cards.forEach((card) => {
-    card.addEventListener("mousemove", (event) => {
-      const rect = card.getBoundingClientRect();
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
-
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-
-      const rotateX = ((y - centerY) / centerY) * -2;
-      const rotateY = ((x - centerX) / centerX) * 2;
-
-      card.style.transform = `translateY(-4px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    });
-
-    card.addEventListener("mouseleave", () => {
-      card.style.transform = "";
-    });
-  });
-}
-
-// ======================================================
-// Botón volver arriba, si existe en el HTML
-// ======================================================
-function initBackToTop() {
-  const button = document.querySelector(".back-to-top");
-
-  if (!button) return;
-
-  function toggleButton() {
-    if (window.scrollY > 500) {
-      button.classList.add("show");
-    } else {
-      button.classList.remove("show");
-    }
-  }
-
-  button.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  });
-
-  toggleButton();
-  window.addEventListener("scroll", toggleButton);
+  window.addEventListener("scroll", updateHeader, { passive: true });
 }
 
 // ======================================================
@@ -311,30 +163,26 @@ function initRegistrationForms() {
 
   if (!typeButtons.length || !formContainer) return;
 
-  // URLs de los formularios de WordPress 
+  // URLs de los formularios de Google Forms
   const formUrls = {
-  estudiantes: "https://docs.google.com/forms/d/e/1FAIpQLSeeH_aYWGZ1P4DaSewg0-ALLF-iFhgrVMQIxX6xPT61BjRbew/viewform?embedded=true",
-
-  socios: "https://docs.google.com/forms/d/e/1FAIpQLSdbggoeFJeIsXZ0GAsNm0G1y_4MXHQ0UbIhwxZJ0lbgDb__PQ/viewform?embedded=true",
-
-  profesionales: "https://docs.google.com/forms/d/e/1FAIpQLSf_ZmT9pSIQRu0AS-VPKCEdbr69XWEhZkmXcF3wTFJU6wKrQA/viewform?embedded=true",
-
-  profesores: "https://docs.google.com/forms/d/e/1FAIpQLSeHEWmHGYL-_e8WJudJ2RKTFOmjM9g_rqjrQRV0GhEH-yCW7w/viewform?embedded=true"
-};
+    estudiantes: "https://docs.google.com/forms/d/e/1FAIpQLSeeH_aYWGZ1P4DaSewg0-ALLF-iFhgrVMQIxX6xPT61BjRbew/viewform?embedded=true",
+    socios: "https://docs.google.com/forms/d/e/1FAIpQLSdbggoeFJeIsXZ0GAsNm0G1y_4MXHQ0UbIhwxZJ0lbgDb__PQ/viewform?embedded=true",
+    profesionales: "https://docs.google.com/forms/d/e/1FAIpQLSf_ZmT9pSIQRu0AS-VPKCEdbr69XWEhZkmXcF3wTFJU6wKrQA/viewform?embedded=true",
+    profesores: "https://docs.google.com/forms/d/e/1FAIpQLSeHEWmHGYL-_e8WJudJ2RKTFOmjM9g_rqjrQRV0GhEH-yCW7w/viewform?embedded=true"
+  };
 
   // Títulos de cada formulario
   const formTitles = {
-    estudiantes: "Registro - Estudiantes",
-    socios: "Registro - Socios SCM",
-    profesionales: "Registro - Profesionales",
-    profesores: "Registro - Profesores"
+    estudiantes: "Registro · Estudiantes",
+    socios: "Registro · Socios SCM",
+    profesionales: "Registro · Profesionales",
+    profesores: "Registro · Profesores"
   };
 
   function loadForm(type) {
     const url = formUrls[type];
     if (!url || !iframe) return;
 
-    // Actualizar botones activos
     typeButtons.forEach((btn) => {
       btn.classList.remove("active");
       if (btn.getAttribute("data-type") === type) {
@@ -342,38 +190,30 @@ function initRegistrationForms() {
       }
     });
 
-    // Mostrar contenedor del formulario
     formContainer.style.display = "block";
 
-    // Actualizar título
     if (formTitle) {
       formTitle.textContent = formTitles[type] || "Formulario de registro";
     }
 
-    // Mostrar loading, ocultar iframe
     if (loading) loading.style.display = "flex";
     iframe.style.display = "none";
 
-    // Cargar el iframe correctamente
-iframe.src = "";
+    iframe.src = "";
+    setTimeout(() => {
+      iframe.src = url;
+    }, 50);
 
-setTimeout(() => {
-  iframe.src = url;
-}, 50);
-
-    // Cuando el iframe cargue, mostrar y ocultar loading
     iframe.onload = function () {
       if (loading) loading.style.display = "none";
       iframe.style.display = "block";
 
-      // Scroll suave al contenedor del formulario
       formContainer.scrollIntoView({
         behavior: "smooth",
         block: "start"
       });
     };
 
-    // Timeout en caso de que el iframe tarde mucho
     setTimeout(function () {
       if (loading && loading.style.display === "flex") {
         loading.style.display = "none";
@@ -383,17 +223,14 @@ setTimeout(() => {
   }
 
   function hideForm() {
-    // Ocultar contenedor del formulario
     formContainer.style.display = "none";
     if (iframe) iframe.src = "";
 
-    // Quitar clase activa de todos los botones
     typeButtons.forEach((btn) => {
       btn.classList.remove("active");
     });
   }
 
-  // Event listeners para los botones de tipo
   typeButtons.forEach((button) => {
     button.addEventListener("click", function () {
       const type = this.getAttribute("data-type");
@@ -409,12 +246,10 @@ setTimeout(() => {
     });
   });
 
-  // Botón para cambiar categoría
   if (btnChangeCategory) {
     btnChangeCategory.addEventListener("click", hideForm);
   }
 
-  // Verificar si hay un tipo de registro en el hash de la URL
   const hash = window.location.hash;
   if (hash && hash.includes("registro-")) {
     const type = hash.replace("#registro-", "");
@@ -428,14 +263,9 @@ setTimeout(() => {
 // Inicialización general
 // ======================================================
 document.addEventListener("DOMContentLoaded", () => {
-  initCountdown();
   initTabs();
   initTabLinks();
   initSmoothScroll();
   initHeaderEffect();
-  initScrollAnimations();
-  initMathFloating();
-  initCardTilt();
-  initBackToTop();
   initRegistrationForms();
 });
