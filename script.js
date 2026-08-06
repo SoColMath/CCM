@@ -165,10 +165,14 @@ function initRegistrationForms() {
 
   // URLs de los formularios de Google Forms
   const formUrls = {
-    estudiantes: "https://docs.google.com/forms/d/e/1FAIpQLSeeH_aYWGZ1P4DaSewg0-ALLF-iFhgrVMQIxX6xPT61BjRbew/viewform?embedded=true",
-    socios: "https://docs.google.com/forms/d/e/1FAIpQLSdbggoeFJeIsXZ0GAsNm0G1y_4MXHQ0UbIhwxZJ0lbgDb__PQ/viewform?embedded=true",
-    profesionales: "https://docs.google.com/forms/d/e/1FAIpQLSf_ZmT9pSIQRu0AS-VPKCEdbr69XWEhZkmXcF3wTFJU6wKrQA/viewform?embedded=true",
-    profesores: "https://docs.google.com/forms/d/e/1FAIpQLSeHEWmHGYL-_e8WJudJ2RKTFOmjM9g_rqjrQRV0GhEH-yCW7w/viewform?embedded=true"
+    estudiantes:
+      "https://docs.google.com/forms/d/e/1FAIpQLSeeH_aYWGZ1P4DaSewg0-ALLF-iFhgrVMQIxX6xPT61BjRbew/viewform?embedded=true",
+    socios:
+      "https://docs.google.com/forms/d/e/1FAIpQLSdbggoeFJeIsXZ0GAsNm0G1y_4MXHQ0UbIhwxZJ0lbgDb__PQ/viewform?embedded=true",
+    profesionales:
+      "https://docs.google.com/forms/d/e/1FAIpQLSf_ZmT9pSIQRu0AS-VPKCEdbr69XWEhZkmXcF3wTFJU6wKrQA/viewform?embedded=true",
+    profesores:
+      "https://docs.google.com/forms/d/e/1FAIpQLSeHEWmHGYL-_e8WJudJ2RKTFOmjM9g_rqjrQRV0GhEH-yCW7w/viewform?embedded=true",
   };
 
   // Títulos de cada formulario
@@ -176,7 +180,7 @@ function initRegistrationForms() {
     estudiantes: "Registro · Estudiantes",
     socios: "Registro · Socios SCM",
     profesionales: "Registro · Profesionales",
-    profesores: "Registro · Profesores"
+    profesores: "Registro · Profesores",
   };
 
   function loadForm(type) {
@@ -210,7 +214,7 @@ function initRegistrationForms() {
 
       formContainer.scrollIntoView({
         behavior: "smooth",
-        block: "start"
+        block: "start",
       });
     };
 
