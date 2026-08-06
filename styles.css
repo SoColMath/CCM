@@ -887,7 +887,7 @@ a {
 
 /* ================= Agenda ================= */
 .agenda-grid {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   margin-top: 1.75rem;
 }
 
@@ -917,10 +917,6 @@ a {
 
 .agenda-day:nth-child(4) {
   border-top-color: var(--green);
-}
-
-.agenda-day:nth-child(5) {
-  border-top-color: var(--teal-dark);
 }
 
 .agenda-day:hover {
