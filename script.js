@@ -273,3 +273,4 @@ document.addEventListener("DOMContentLoaded", () => {
   initHeaderEffect();
   initRegistrationForms();
 });
+
