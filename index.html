@@ -79,8 +79,8 @@
       </p>
 
       <div class="hero-actions">
-        <button class="btn-primary hero-action" data-open-tab="registro">
-          Inscribirme
+        <button class="btn-primary hero-action btn-disabled" type="button" disabled aria-disabled="true">
+          Registro próximamente
         </button>
 
         <button class="btn-secondary hero-action" data-open-tab="programacion">
@@ -197,118 +197,44 @@
     <!-- ================= Registro ================= -->
     <section class="tab-content" id="tab-registro">
 
-      <div class="section-card registration-section">
-
+      <div class="section-card registration-section registration-coming-soon">
         <div class="registration-header">
           <span class="eyebrow">Inscripción</span>
-          <span class="status-badge status-open">Abierto</span>
+          <span class="status-badge status-soon">Próximamente</span>
         </div>
 
-        <h2 class="section-title">Registro</h2>
+        <div class="registration-coming-layout">
+          <div>
+            <h2 class="section-title">Registro</h2>
 
-        <p class="section-text">
-          Seleccione su tipo de participante para acceder al formulario de registro correspondiente.
-        </p>
+            <p class="section-text">
+              La inscripción al <strong>XXV Congreso Colombiano de Matemáticas</strong>
+              se habilitará próximamente.
+            </p>
 
-        <div class="registration-steps">
-          <div class="step-card">
-            <div class="step-number">01</div>
-            <h4>Seleccionar categoría</h4>
-            <p>Escoja el tipo de participante que corresponda a su perfil.</p>
+            <p class="section-text">
+              En esta sección encontrará el enlace para realizar el proceso de
+              <strong>inscripción y pago</strong> una vez se encuentre habilitado.
+            </p>
+
+            <div class="registration-event-data" aria-label="Datos del evento">
+              <div class="registration-event-item">
+                <span class="registration-event-label">Lugar</span>
+                <strong>Medellín · Universidad EAFIT</strong>
+              </div>
+              <div class="registration-event-item">
+                <span class="registration-event-label">Fecha</span>
+                <strong>8 al 11 de junio de 2027</strong>
+              </div>
+            </div>
           </div>
 
-          <div class="step-card">
-            <div class="step-number">02</div>
-            <h4>Completar formulario</h4>
-            <p>Diligenciar los datos personales, institucionales y de participación.</p>
-          </div>
-
-          <div class="step-card">
-            <div class="step-number">03</div>
-            <h4>Confirmar inscripción</h4>
-            <p>Recibir la confirmación oficial al correo electrónico registrado.</p>
+          <div class="registration-coming-panel" aria-hidden="true">
+            <div class="registration-coming-icon">∑</div>
+            <span>Inscripciones</span>
+            <strong>Próximamente</strong>
           </div>
         </div>
-
-        <h3 class="section-subtitle">Seleccione su tipo de registro</h3>
-
-        <div class="reg-type-grid">
-          <button class="reg-type-btn" data-type="estudiantes" type="button">
-            <span class="reg-type-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-                <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/>
-              </svg>
-            </span>
-            <span class="reg-type-label">Estudiantes</span>
-            <span class="reg-type-desc">Pregrado y posgrado</span>
-          </button>
-
-          <button class="reg-type-btn" data-type="socios" type="button">
-            <span class="reg-type-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-                <circle cx="9" cy="7" r="4"/>
-                <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-              </svg>
-            </span>
-            <span class="reg-type-label">Socios SCM</span>
-            <span class="reg-type-desc">Miembros activos</span>
-          </button>
-
-          <button class="reg-type-btn" data-type="profesionales" type="button">
-            <span class="reg-type-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-              </svg>
-            </span>
-            <span class="reg-type-label">Profesionales</span>
-            <span class="reg-type-desc">Sector público y privado</span>
-          </button>
-
-          <button class="reg-type-btn" data-type="profesores" type="button">
-            <span class="reg-type-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-                <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/>
-                <circle cx="12" cy="10" r="2"/>
-              </svg>
-            </span>
-            <span class="reg-type-label">Profesores</span>
-            <span class="reg-type-desc">Docentes e investigadores</span>
-          </button>
-        </div>
-
-        <div id="registration-form-container" class="registration-form-container" style="display: none;">
-
-          <div class="form-header">
-            <button type="button" class="btn-back" id="btn-change-category">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M19 12H5M12 19l-7-7 7-7"/>
-              </svg>
-              Cambiar categoría
-            </button>
-            <h3 id="form-title">Formulario de registro</h3>
-          </div>
-
-          <div id="form-loading" class="form-loading">
-            <div class="loading-spinner"></div>
-            <p>Cargando formulario...</p>
-          </div>
-
-          <iframe
-            id="registration-iframe"
-            class="registration-iframe"
-            frameborder="0"
-            marginheight="0"
-            marginwidth="0"
-            style="display: none;">
-          </iframe>
-
-        </div>
-
       </div>
 
     </section>

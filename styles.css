@@ -2013,3 +2013,137 @@ a {
   }
 }
 
+
+
+/* ================= Registro próximamente ================= */
+.btn-disabled,
+.btn-primary:disabled {
+  cursor: default;
+  opacity: 0.72;
+  transform: none !important;
+}
+
+.btn-disabled:hover,
+.btn-primary:disabled:hover {
+  background: var(--teal);
+  border-color: var(--teal);
+  transform: none;
+}
+
+.status-soon {
+  color: var(--orange-dark);
+  background: rgba(232, 119, 34, 0.10);
+  border: 1px solid rgba(232, 119, 34, 0.28);
+}
+
+.registration-coming-soon {
+  overflow: hidden;
+}
+
+.registration-coming-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.7fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.registration-event-data {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin-top: 1.75rem;
+}
+
+.registration-event-item {
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.registration-event-label {
+  display: block;
+  margin-bottom: 0.28rem;
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.registration-event-item strong {
+  color: var(--navy);
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+.registration-coming-panel {
+  position: relative;
+  min-height: 250px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: var(--radius-lg);
+  color: #fff;
+  background: var(--navy);
+  overflow: hidden;
+}
+
+.registration-coming-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(135deg, transparent 18%, #000);
+  -webkit-mask-image: linear-gradient(135deg, transparent 18%, #000);
+}
+
+.registration-coming-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.registration-coming-icon {
+  display: grid;
+  place-items: center;
+  width: 4.2rem;
+  height: 4.2rem;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  color: var(--orange);
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.registration-coming-panel span {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.registration-coming-panel strong {
+  margin-top: 0.35rem;
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1.7rem;
+  line-height: 1.15;
+}
+
+@media (max-width: 800px) {
+  .registration-coming-layout,
+  .registration-event-data {
+    grid-template-columns: 1fr;
+  }
+
+  .registration-coming-panel {
+    min-height: 210px;
+  }
+}
