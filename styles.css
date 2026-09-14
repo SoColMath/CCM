@@ -173,7 +173,7 @@ a {
 /* ================= Hero ================= */
 .hero {
   position: relative;
-  padding: calc(var(--header-h) + 4rem) 1.5rem 4.5rem;
+  padding: var(--header-h) 0 4.5rem;
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -342,9 +342,9 @@ a {
   z-index: 2;
   isolation: isolate;
   width: 100%;
-  max-width: 880px;
+  max-width: none;
   margin: 0 auto;
-  padding: 2.5rem 2rem 2.25rem;
+  padding: 0 0 2.25rem;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -382,12 +382,27 @@ a {
 }
 
 .hero-event-logo {
-  width: min(360px, 78vw);
-  height: auto;
   display: block;
-  margin: 0 auto 2rem;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  margin: 0 0 2.5rem;
   object-fit: contain;
   animation: fadeInUp 0.6s ease both;
+}
+
+.hero-kicker,
+.hero-title,
+.hero-description {
+  width: calc(100% - 2rem);
+}
+
+.hero-actions {
+  padding-inline: 1rem;
+}
+
+.hero-badge {
+  max-width: calc(100% - 2rem);
 }
 
 .hero-kicker {
