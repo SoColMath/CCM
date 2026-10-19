@@ -2748,6 +2748,39 @@ body.admin-bar #ccm2027 .tab-nav { top: calc(var(--header-h) + var(--ccm-admin-o
   }
 }
 
+
+/* ================= CCM 2027 | Costos e inscripciones ================= */
+#ccm2027 .ccm-periodos { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; margin:1.8rem 0 1.5rem; }
+#ccm2027 .ccm-periodo { display:flex; flex-direction:column; gap:.3rem; padding:1.3rem 1.5rem; border:1px solid var(--border); border-radius:var(--radius); background:var(--surface-2); }
+#ccm2027 .ccm-periodo-first { border-top:3px solid var(--teal); }
+#ccm2027 .ccm-periodo-second { border-top:3px solid var(--orange); }
+#ccm2027 .ccm-periodo-label { font-size:.75rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--teal-dark); }
+#ccm2027 .ccm-periodo-second .ccm-periodo-label { color:var(--orange-dark); }
+#ccm2027 .ccm-periodo strong { font-size:1.04rem; color:var(--navy); line-height:1.4; }
+#ccm2027 .ccm-periodo > span:last-child { color:var(--muted-foreground); font-size:.85rem; }
+#ccm2027 .ccm-cost-table-wrap { width:100%; overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius); }
+#ccm2027 .ccm-cost-table { width:100%; border-collapse:collapse; min-width:690px; font-size:.91rem; line-height:1.5; }
+#ccm2027 .ccm-cost-table thead { background:var(--navy); color:white; }
+#ccm2027 .ccm-cost-table th, #ccm2027 .ccm-cost-table td { padding:1rem 1.15rem; text-align:left; vertical-align:middle; }
+#ccm2027 .ccm-cost-table thead th { font-weight:700; }
+#ccm2027 .ccm-cost-table thead th:nth-child(n+2) { text-align:center; width:23%; }
+#ccm2027 .ccm-cost-table tbody th[scope=row] { font-weight:500; color:var(--navy); }
+#ccm2027 .ccm-cost-table tbody tr:not(.ccm-group) { border-top:1px solid var(--border); }
+#ccm2027 .ccm-cost-table tbody tr:not(.ccm-group):hover { background:#F4FAFA; }
+#ccm2027 .ccm-cost-table td { text-align:center; white-space:nowrap; color:var(--navy); font-weight:700; font-variant-numeric:tabular-nums; }
+#ccm2027 .ccm-cost-table td:nth-child(2) { color:var(--teal-dark); background:rgba(14,124,142,.045); }
+#ccm2027 .ccm-cost-table .ccm-group { background:var(--surface-2); }
+#ccm2027 .ccm-cost-table .ccm-group th { color:var(--teal-dark); font-size:.76rem; text-transform:uppercase; letter-spacing:.065em; padding:.7rem 1.15rem; border-top:1px solid var(--border); }
+#ccm2027 .ccm-cost-footnote { margin-top:.85rem; color:var(--muted-foreground); font-size:.8rem; }
+#ccm2027 .ccm-clarification-list { margin-top:1.5rem; padding:0; list-style:none; counter-reset:ccm-notes; display:grid; gap:.9rem; }
+#ccm2027 .ccm-clarification-list > li { position:relative; counter-increment:ccm-notes; padding:1.1rem 1.2rem 1.1rem 3.7rem; border:1px solid var(--border); border-radius:var(--radius); color:var(--muted-foreground); line-height:1.7; background:var(--surface); }
+#ccm2027 .ccm-clarification-list > li::before { content:counter(ccm-notes,decimal-leading-zero); position:absolute; left:1rem; top:1.05rem; display:grid; place-items:center; width:1.9rem; height:1.9rem; border-radius:.45rem; background:var(--surface-2); color:var(--teal-dark); font-weight:800; font-size:.75rem; }
+#ccm2027 .ccm-clarification-list strong { color:var(--navy); }
+#ccm2027 .ccm-clarification-list ul { padding-left:1.15rem; margin-top:.65rem; }
+#ccm2027 .ccm-clarification-list ul li { margin-top:.5rem; }
+#ccm2027 .ccm-clarification-list a { color:var(--teal-dark); font-weight:700; text-underline-offset:3px; overflow-wrap:anywhere; }
+@media(max-width:720px) { #ccm2027 .ccm-periodos { grid-template-columns:1fr; } #ccm2027 .ccm-cost-table { font-size:.85rem; } #ccm2027 .ccm-cost-table th,#ccm2027 .ccm-cost-table td { padding:.8rem .9rem; } }
+
 </style>
 <div id="ccm2027" lang="es">
   <!-- ================= Header ================= -->
@@ -3021,44 +3054,71 @@ body.admin-bar #ccm2027 .tab-nav { top: calc(var(--header-h) + var(--ccm-admin-o
 
     <!-- ================= Costos ================= -->
     <section class="tab-content" id="tab-costos">
-
-      <div class="section-card">
-        <span class="eyebrow">Costos</span>
-
-        <h2 class="section-title">Tarifas de inscripción</h2>
-
-        <p class="section-text">
-          En esta sección se presentarán los valores de inscripción para estudiantes,
-          socios de la Sociedad Colombiana de Matemáticas, profesionales y profesores.
-        </p>
-
-        <div class="pricing-cards">
-          <div class="pricing-card-mini">
-            <h4>Estudiantes</h4>
-            <p>Tarifa especial para estudiantes de pregrado y posgrado.</p>
-            <strong>Próximamente</strong>
+      <div class="section-card ccm-costos">
+        <span class="eyebrow">Inscripciones · CCM 2027</span>
+        <div class="section-heading-row">
+          <div>
+            <h2 class="section-title">Tarifas de inscripción</h2>
+            <p class="section-text">Consulta el valor de tu inscripción según tu categoría y la fecha en que realices el pago. Los valores están expresados en pesos colombianos (COP).</p>
           </div>
+          <span class="section-mark" aria-hidden="true">$</span>
+        </div>
 
-          <div class="pricing-card-mini">
-            <h4>Socios SCM</h4>
-            <p>Tarifa preferencial para miembros activos de la Sociedad Colombiana de Matemáticas.</p>
-            <strong>Próximamente</strong>
+        <div class="ccm-periodos" aria-label="Periodos de inscripción">
+          <div class="ccm-periodo ccm-periodo-first">
+            <span class="ccm-periodo-label">Primer corte</span>
+            <strong>1 de enero – 20 de abril de 2027</strong>
+            <span>Tarifas de inscripción anticipada</span>
           </div>
-
-          <div class="pricing-card-mini">
-            <h4>Profesionales y profesores</h4>
-            <p>Tarifa general para participantes profesionales, docentes e investigadores.</p>
-            <strong>Próximamente</strong>
+          <div class="ccm-periodo ccm-periodo-second">
+            <span class="ccm-periodo-label">Segundo corte</span>
+            <strong>Después del 20 de abril de 2027</strong>
+            <span>Tarifas de inscripción posteriores al primer corte</span>
           </div>
         </div>
 
-        <div class="note-box">
-          <p>
-            Los valores definitivos, medios de pago y fechas límite serán publicados oportunamente.
-          </p>
+        <div class="ccm-cost-table-wrap" role="region" aria-label="Tabla comparativa de tarifas de inscripción" tabindex="0">
+          <table class="ccm-cost-table">
+            <thead><tr>
+              <th scope="col">Tipo de registro</th>
+              <th scope="col">Hasta el 20 de abril</th>
+              <th scope="col">Después del 20 de abril</th>
+            </tr></thead>
+            <tbody>
+              <tr class="ccm-group"><th colspan="3" scope="colgroup">Estudiantes</th></tr>
+              <tr><th scope="row">Estudiante + Suscripción Socio Adjunto con revistas físicas</th><td>$220.000</td><td>$280.000</td></tr>
+              <tr><th scope="row">Estudiante + Suscripción Socio Adjunto con revistas virtuales</th><td>$190.000</td><td>$250.000</td></tr>
+              <tr><th scope="row">Estudiante NO miembro de la SCM</th><td>$120.000</td><td>$180.000</td></tr>
+              <tr class="ccm-group"><th colspan="3" scope="colgroup">Profesionales, profesores y socios efectivos</th></tr>
+              <tr><th scope="row">Profesionales NO miembros de la SCM</th><td>$450.000</td><td>$510.000</td></tr>
+              <tr><th scope="row">Socios Efectivos SCM (si ya eres socio activo)</th><td>$220.000</td><td>$280.000</td></tr>
+              <tr><th scope="row">Profesional + Suscripción Socio Efectivo con revistas físicas</th><td>$500.000</td><td>$560.000</td></tr>
+              <tr><th scope="row">Profesional + Suscripción Socio Efectivo con revistas virtuales</th><td>$480.000</td><td>$540.000</td></tr>
+            </tbody>
+          </table>
         </div>
+        <p class="ccm-cost-footnote">* Todos los valores están expresados en pesos colombianos (COP).</p>
       </div>
 
+      <div class="section-card ccm-clarifications">
+        <span class="eyebrow">Información importante</span>
+        <h2 class="section-title">Aclaraciones sobre la inscripción</h2>
+        <p class="section-text">Antes de elegir una categoría, ten en cuenta las siguientes condiciones:</p>
+        <ol class="ccm-clarification-list">
+          <li>
+            <strong>Modalidades de suscripción a la SCM.</strong>
+            La SCM ofrecerá dos modalidades tanto para socios adjuntos (estudiantes) como para socios efectivos (profesionales y profesores):
+            <ul>
+              <li><strong>Con revistas virtuales:</strong> formarás parte de la SCM y recibirás en formato digital todo el material que la Sociedad distribuye a sus socios.</li>
+              <li><strong>Con revistas físicas:</strong> formarás parte de la SCM y recibirás en papel todo el material que la Sociedad distribuye a sus socios.</li>
+            </ul>
+          </li>
+          <li><strong>Estudiantes:</strong> si eres estudiante activo de pregrado o posgrado, tienes tres opciones de registro. Dos de ellas te permitirán ser <strong>Socio Adjunto de la SCM</strong>.</li>
+          <li><strong>Profesionales y profesores:</strong> tienes tres opciones de registro para esta condición, dos de ellas te permitirán ser <strong>Socio Efectivo de la SCM</strong>. Si ya eres socio efectivo activo, cuentas también con la tarifa correspondiente a socios.</li>
+          <li><strong>Modalidad del congreso:</strong> el Congreso Colombiano de Matemáticas es <strong>completamente presencial</strong>. No habrá sesiones híbridas ni completamente virtuales.</li>
+          <li><strong>Pagos bancarios:</strong> si realizas el pago en una entidad bancaria en lugar de utilizar los botones de PayU, es necesario enviar el comprobante de pago a <a href="mailto:scm@scm.org.co">scm@scm.org.co</a> para que tu pago quede debidamente registrado en la conferencia.</li>
+        </ol>
+      </div>
     </section>
 
     <!-- ================= Información ================= -->
