@@ -2836,6 +2836,22 @@ body.admin-bar #ccm2027 .tab-nav { top: calc(var(--header-h) + var(--ccm-admin-o
 @media(max-width:1000px){#ccm2027 .ccm-call-steps{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:700px){#ccm2027 .ccm-call-grid,#ccm2027 .ccm-call-areas{grid-template-columns:1fr}#ccm2027 .ccm-call-steps{grid-template-columns:1fr}#ccm2027 .ccm-call-step{flex-direction:row}#ccm2027 .ccm-call-step>div{width:100%}#ccm2027 .ccm-call-step-number{flex-shrink:0}#ccm2027 .ccm-call-publication{grid-template-columns:1fr;gap:1rem}#ccm2027 .ccm-call-date-row{align-items:flex-start;flex-direction:column;gap:.35rem}#ccm2027 .ccm-call-date-row strong{text-align:left}#ccm2027 .ccm-call-unavailable{flex-wrap:wrap}}
 
+
+/* ===== Pestaña independiente Premios SCM 2027 ===== */
+#ccm2027 .ccm-prizes-lead { max-width: 880px; }
+#ccm2027 .ccm-prizes-deadline {display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:1.5rem;padding:1.15rem 1.35rem;background:var(--surface-2);border-left:4px solid var(--orange);border-radius:0 12px 12px 0;color:var(--navy)}
+#ccm2027 .ccm-prizes-deadline strong {color:var(--navy)}
+#ccm2027 .ccm-prizes-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1rem;margin-bottom:1.75rem}
+#ccm2027 .ccm-prizes-grid .ccm-prize-detail {padding:1.6rem;min-height:340px;display:flex;flex-direction:column;align-items:flex-start;gap:1rem;border:1px solid var(--border);border-top:3px solid var(--teal);border-radius:var(--radius-lg);background:var(--surface);box-shadow:var(--shadow-sm);transition:box-shadow .2s,transform .2s}
+#ccm2027 .ccm-prizes-grid .ccm-prize-detail:nth-child(2){border-top-color:var(--orange)}
+#ccm2027 .ccm-prizes-grid .ccm-prize-detail:nth-child(3){border-top-color:var(--green)}
+#ccm2027 .ccm-prizes-grid .ccm-prize-detail:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+#ccm2027 .ccm-prize-detail-index {width:2.65rem;height:2.65rem;border-radius:.75rem;display:grid;place-items:center;background:var(--surface-2);color:var(--teal-dark);font-weight:800}
+#ccm2027 .ccm-prize-detail h3 {font-family:'Source Serif 4',Georgia,serif;font-size:1.45rem;line-height:1.25;color:var(--navy)}
+#ccm2027 .ccm-prize-detail p {font-size:.92rem;line-height:1.72;color:var(--muted-foreground);flex:1}
+#ccm2027 .ccm-prize-detail .btn-secondary {width:100%;text-align:center}
+#ccm2027 .ccm-prize-notice {font-size:.92rem;color:var(--muted-foreground)}
+@media(max-width:950px){#ccm2027 .ccm-prizes-grid{grid-template-columns:1fr}#ccm2027 .ccm-prizes-grid .ccm-prize-detail{min-height:auto}}
 </style>
 <div id="ccm2027" lang="es">
   <!-- ================= Header ================= -->
@@ -2859,6 +2875,7 @@ body.admin-bar #ccm2027 .tab-nav { top: calc(var(--header-h) + var(--ccm-admin-o
         <a href="#tab-inicio-tab">Inicio</a>
         <a href="#tab-registro">Registro</a>
         <a href="#tab-ponencias">Ponencias</a>
+        <a href="#tab-premios">Premios</a>
         <a href="#tab-costos">Costos</a>
         <a href="#tab-informacion">Información</a>
         <a href="#tab-comites">Comités</a>
@@ -2928,6 +2945,7 @@ body.admin-bar #ccm2027 .tab-nav { top: calc(var(--header-h) + var(--ccm-admin-o
       <button class="tab-btn active" data-tab="inicio-tab">Inicio</button>
       <button class="tab-btn" data-tab="registro">Registro</button>
       <button class="tab-btn" data-tab="ponencias">Ponencias</button>
+       <button class="tab-btn" data-tab="premios">Premios</button>
       <button class="tab-btn" data-tab="costos">Costos</button>
       <button class="tab-btn" data-tab="informacion">Información</button>
       <button class="tab-btn" data-tab="comites">Comités</button>
@@ -2959,10 +2977,7 @@ body.admin-bar #ccm2027 .tab-nav { top: calc(var(--header-h) + var(--ccm-admin-o
   <div class="section-card"><span class="eyebrow">Áreas de interés</span><h2 class="section-title">Ocho áreas para encontrarnos</h2><p class="section-text">Los trabajos se organizan en las siguientes áreas temáticas:</p>
     <div class="tags-container thematic-tags"><span class="tag">1. Análisis y teoría de operadores</span><span class="tag">2. Álgebra, teoría de números, combinatoria y criptografía</span><span class="tag">3. Ecuaciones diferenciales y sistemas dinámicos</span><span class="tag">4. Educación matemática, divulgación matemática e historia</span><span class="tag">5. Geometría, topología y lógica</span><span class="tag">6. Matemática aplicada: optimización, física matemática y teoría de control</span><span class="tag">7. Probabilidad y estadística, ciencia de datos e inteligencia artificial</span><span class="tag">8. Análisis numérico y ciencias de la computación</span></div>
   </div>
-  <div class="section-card"><span class="eyebrow">Reconocimientos de la SCM</span><h2 class="section-title">Convocatoria a premios</h2><p class="section-text">Las nominaciones estarán abiertas hasta el <strong>31 de marzo de 2027</strong>. Consulta los requisitos y procedimientos en la página de premios de la SCM.</p>
-    <div class="ccm-prize-grid"><div class="ccm-prize-card"><span>01</span><h3>Premio Nacional de Matemáticas</h3><a href="https://scm.org.co/web/sobre-la-scm/premios/" target="_blank" rel="noopener noreferrer">Consultar premio ↗</a></div><div class="ccm-prize-card"><span>02</span><h3>Premio José Celestino Mutis</h3><a href="https://scm.org.co/web/sobre-la-scm/premios/" target="_blank" rel="noopener noreferrer">Consultar premio ↗</a></div><div class="ccm-prize-card"><span>03</span><h3>Premio José Fernando Escobar</h3><a href="https://scm.org.co/web/sobre-la-scm/premios/" target="_blank" rel="noopener noreferrer">Consultar premio ↗</a></div></div>
-  </div>
-  <div class="section-card"><span class="eyebrow">Organización</span><h2 class="section-title">Instituciones organizadoras y de apoyo</h2><p class="section-text"><strong>Organizan:</strong> Sociedad Colombiana de Matemáticas y Universidad EAFIT.</p><p class="section-text"><strong>Con el apoyo de:</strong> Universidad Industrial de Santander, Universidad de los Andes, Universidad Nacional de Colombia, Universidad del Valle, Universidad del Cauca, Universidad del Norte, Universidad de Antioquia, Universidad Distrital, Universidad Pedagógica y Tecnológica de Colombia y Universidad Konrad Lorenz.</p></div>
+  <div class="section-card"><span class="eyebrow">Organización</span<h2 class="section-title">Instituciones organizadoras y de apoyo</h2><p class="section-text"><strong>Organizan:</strong> Sociedad Colombiana de Matemáticas y Universidad EAFIT.</p><p class="section-text"><strong>Con el apoyo de:</strong> Universidad Industrial de Santander, Universidad de los Andes, Universidad Nacional de Colombia, Universidad del Valle, Universidad del Cauca, Universidad del Norte, Universidad de Antioquia, Universidad Distrital, Universidad Pedagógica y Tecnológica de Colombia y Universidad Konrad Lorenz.</p></div>
 </section>
 
 <section class="tab-content" id="tab-registro">
@@ -3007,6 +3022,44 @@ body.admin-bar #ccm2027 .tab-nav { top: calc(var(--header-h) + var(--ccm-admin-o
         </div>
       </div>
 
+    </section>
+
+
+    <!-- ================= Premios ================= -->
+    <section class="tab-content" id="tab-premios" aria-label="Premios de la Sociedad Colombiana de Matemáticas">
+      <div class="section-card">
+        <span class="eyebrow">Reconocimientos de la SCM · CCM 2027</span>
+        <h2 class="section-title">Premios de la Sociedad Colombiana de Matemáticas</h2>
+        <p class="section-text ccm-prizes-lead">En el marco del <strong>XXV Congreso Colombiano de Matemáticas</strong>, la Sociedad Colombiana de Matemáticas reconoce las contribuciones sobresalientes a la investigación, la enseñanza y el desarrollo de las matemáticas en Colombia.</p>
+        <div class="ccm-prizes-deadline"><strong>Fecha límite para nominaciones:</strong> <span>31 de marzo de 2027</span></div>
+        <p class="section-text">Los candidatos deben ser nominados por miembros de la SCM o por instituciones académicas o científicas del país. <strong>No se aceptan autonominaciones.</strong> Consulta los requisitos y documentos específicos de cada premio en su página oficial.</p>
+      </div>
+      <div class="ccm-prizes-grid">
+        <article class="ccm-prize-detail">
+          <span class="ccm-prize-detail-index">01</span>
+          <h3>Premio Nacional de Matemáticas</h3>
+          <p>Reconoce a quienes, mediante una trayectoria profesional destacada, han contribuido de manera fundamental al desarrollo de las matemáticas en Colombia. Para la evaluación se consideran la investigación, la formación de talento especializado y el fortalecimiento de las matemáticas en el país.</p>
+          <a class="btn-secondary" href="https://scm.org.co/web/sobre-la-scm/premios/premio-nacional-de-matematicas/" target="_blank" rel="noopener noreferrer" aria-label="Consultar requisitos del Premio Nacional de Matemáticas">Consultar requisitos y nominaciones ↗</a>
+        </article>
+        <article class="ccm-prize-detail">
+          <span class="ccm-prize-detail-index">02</span>
+          <h3>Premio José Celestino Mutis</h3>
+          <p>Distingue a docentes cuya labor ha contribuido significativamente a la enseñanza y al desarrollo de las matemáticas en Colombia. Valora la formación de personas, los aportes a la investigación en educación matemática y el fortalecimiento de su enseñanza.</p>
+          <a class="btn-secondary" href="https://scm.org.co/web/sobre-la-scm/premios/premio-jose-celestino-mutis/" target="_blank" rel="noopener noreferrer" aria-label="Consultar requisitos del Premio José Celestino Mutis">Consultar requisitos y nominaciones ↗</a>
+        </article>
+        <article class="ccm-prize-detail">
+          <span class="ccm-prize-detail-index">03</span>
+          <h3>Premio José Fernando Escobar</h3>
+          <p>Reconoce resultados excepcionales de investigación en matemáticas puras o aplicadas que hayan sido publicados previamente. Los trabajos postulados deben cumplir el requisito de vinculación institucional en Colombia; también pueden postularse coautores que reúnan las condiciones del premio.</p>
+          <a class="btn-secondary" href="https://scm.org.co/web/sobre-la-scm/premios/premio-jose-fernando-escobar/" target="_blank" rel="noopener noreferrer" aria-label="Consultar requisitos del Premio José Fernando Escobar">Consultar requisitos y nominaciones ↗</a>
+        </article>
+      </div>
+      <div class="section-card">
+        <span class="eyebrow">Proceso de nominación</span>
+        <h2 class="section-title">Información para postular candidatos</h2>
+        <p class="section-text">Las nominaciones requieren una carta de presentación, cartas de apoyo y la hoja de vida del candidato. Para el <strong>Premio José Fernando Escobar</strong> se solicita además copia de los artículos de investigación correspondientes. Los detalles completos y los criterios de selección se encuentran en los enlaces de cada premio.</p>
+        <p class="section-text ccm-prize-notice">Los premios se entregan durante la sesión solemne del Consejo Directivo de la SCM en el Congreso Colombiano de Matemáticas.</p>
+      </div>
     </section>
 
     <!-- ================= Ponencias: flujo editorial inspirado en MAPI4 ================= -->
