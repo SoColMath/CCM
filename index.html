@@ -2781,6 +2781,61 @@ body.admin-bar #ccm2027 .tab-nav { top: calc(var(--header-h) + var(--ccm-admin-o
 #ccm2027 .ccm-clarification-list a { color:var(--teal-dark); font-weight:700; text-underline-offset:3px; overflow-wrap:anywhere; }
 @media(max-width:720px) { #ccm2027 .ccm-periodos { grid-template-columns:1fr; } #ccm2027 .ccm-cost-table { font-size:.85rem; } #ccm2027 .ccm-cost-table th,#ccm2027 .ccm-cost-table td { padding:.8rem .9rem; } }
 
+
+/* ================= Primer anuncio CCM 2027 ================= */
+#ccm2027 .ccm-announcement-dates {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1.4rem 0 .25rem}
+#ccm2027 .ccm-date-card {padding:1.2rem 1.3rem;border-radius:16px;background:var(--surface-2,#f5f8fa);border:1px solid rgba(17,61,83,.1);display:flex;flex-direction:column;gap:.4rem}
+#ccm2027 .ccm-date-kicker {font-size:.73rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-dark,#147b7c)}
+#ccm2027 .ccm-date-card strong {color:var(--navy,#16334a);font-size:1.13rem}
+#ccm2027 .ccm-date-card p {margin:0;color:var(--text-secondary,#526473);font-size:.9rem;line-height:1.55}
+#ccm2027 .ccm-prize-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:1.3rem}
+#ccm2027 .ccm-prize-card {border:1px solid rgba(17,61,83,.12);background:var(--surface-2,#f5f8fa);border-radius:16px;padding:1.25rem;display:flex;flex-direction:column;align-items:flex-start;min-height:180px;gap:.6rem}
+#ccm2027 .ccm-prize-card>span {font-weight:800;font-size:.78rem;color:var(--teal-dark,#147b7c)}
+#ccm2027 .ccm-prize-card h3 {font-size:1.07rem;color:var(--navy,#16334a);line-height:1.35;margin:0 0 auto}
+#ccm2027 .ccm-prize-card a {font-weight:750;color:var(--teal-dark,#147b7c);text-decoration:none}
+#ccm2027 .ccm-prize-card a:hover {text-decoration:underline}
+#ccm2027 .ccm-guideline-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin:1.3rem 0}
+#ccm2027 .ccm-guideline-grid>div {border-radius:12px;background:var(--surface-2,#f5f8fa);padding:1rem;display:flex;flex-direction:column;gap:.35rem}
+#ccm2027 .ccm-guideline-grid strong {color:var(--navy,#16334a)}
+#ccm2027 .ccm-guideline-grid span {color:var(--text-secondary,#526473)}
+@media(max-width:730px){#ccm2027 .ccm-announcement-dates,#ccm2027 .ccm-guideline-grid{grid-template-columns:1fr}#ccm2027 .ccm-prize-grid{grid-template-columns:1fr}}
+
+
+/* ===== CCM 2027 · Ponencias: estructura inspirada en MAPI4 ===== */
+#ccm2027 .ccm-call-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem;margin-bottom:1.2rem}
+#ccm2027 .ccm-call-grid>.section-card{margin:0}
+#ccm2027 .ccm-call-panel{display:flex;flex-direction:column;align-items:stretch;gap:.75rem}
+#ccm2027 .ccm-call-panel h3{font-family:'Source Serif 4',Georgia,serif;font-size:1.65rem;color:var(--navy);margin:0}
+#ccm2027 .ccm-call-panel p{color:var(--text-muted,#596674);line-height:1.7;margin:0}
+#ccm2027 .ccm-call-icon{display:grid;place-items:center;width:3.6rem;height:3.6rem;border-radius:16px;background:rgba(15,136,140,.10);color:var(--teal-dark);font-size:2rem;font-weight:700}
+#ccm2027 .ccm-call-highlight{padding:1.15rem;border-left:4px solid var(--teal-dark);border-radius:0 12px 12px 0;background:var(--surface-2,#f3f7f8)}
+#ccm2027 .ccm-call-highlight>strong{display:block;color:var(--navy);margin-bottom:.5rem}
+#ccm2027 .ccm-call-highlight ul{margin:.4rem 0 0;padding-left:1.25rem;line-height:1.75;color:var(--text-muted,#596674)}
+#ccm2027 .ccm-call-actions{margin-top:auto;display:grid;gap:.7rem}
+#ccm2027 .ccm-call-unavailable{border:1px dashed rgba(22,92,109,.3);border-radius:12px;padding:.85rem 1rem;background:#f7f9fa;display:flex;justify-content:space-between;align-items:center;gap:.75rem;color:var(--navy);font-size:.9rem}
+#ccm2027 .ccm-call-unavailable strong{white-space:nowrap;color:var(--teal-dark);font-size:.77rem}
+#ccm2027 .ccm-call-textlink{color:var(--teal-dark);font-weight:750;text-decoration:underline;text-underline-offset:3px}
+#ccm2027 .ccm-call-note{font-size:.83rem!important;line-height:1.5!important;color:var(--text-muted,#687687)!important}
+#ccm2027 .ccm-call-modality{margin-top:auto}
+#ccm2027 .ccm-call-dates{background:var(--surface-2,#f5f8fa)}
+#ccm2027 .ccm-call-date-row{display:flex;justify-content:space-between;align-items:center;gap:1rem;border-bottom:1px solid rgba(19,69,84,.12);padding:1.1rem .2rem}
+#ccm2027 .ccm-call-date-row:last-child{border-bottom:none}
+#ccm2027 .ccm-call-date-row strong{color:var(--teal-dark);text-align:right}
+#ccm2027 .ccm-call-publication{display:grid;grid-template-columns:175px 1fr;align-items:center;gap:2rem}
+#ccm2027 .ccm-call-publication-mark{font-family:Georgia,serif;font-weight:900;letter-spacing:.04em;font-size:1.4rem;color:#183c60;border:2px solid #d7e1ec;background:#f5f8fb;border-radius:16px;padding:1.6rem .6rem;text-align:center}
+#ccm2027 .ccm-call-steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.7rem;padding-top:1rem}
+#ccm2027 .ccm-call-step{position:relative;display:flex;flex-direction:column;gap:.75rem;min-width:0}
+#ccm2027 .ccm-call-step-number{width:2.8rem;height:2.8rem;border:3px solid var(--teal-dark);background:white;color:var(--teal-dark);display:grid;place-items:center;border-radius:50%;font-weight:850;z-index:1}
+#ccm2027 .ccm-call-step>div{flex:1;padding:1rem;border:1px solid rgba(16,79,99,.1);background:var(--surface-2,#f6f9fa);border-radius:12px}
+#ccm2027 .ccm-call-step h3{color:var(--navy);font-size:1rem;margin:0 0 .6rem}
+#ccm2027 .ccm-call-step p{font-size:.87rem;line-height:1.55;margin:0;color:var(--text-muted,#586575)}
+#ccm2027 .ccm-call-areas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin-top:1rem}
+#ccm2027 .ccm-call-areas>div{display:flex;align-items:flex-start;gap:.75rem;background:var(--surface-2,#f6f9fa);border-radius:12px;padding:1rem;line-height:1.45;font-weight:650;color:var(--navy)}
+#ccm2027 .ccm-call-areas span{font-weight:900;color:var(--teal-dark)}
+#ccm2027 .ccm-call-closing{border-left:4px solid var(--teal-dark);padding:1.4rem;background:var(--surface-2,#f6f9fa);border-radius:0 12px 12px 0;font-style:italic;line-height:1.65;color:var(--navy);margin-bottom:1rem}
+@media(max-width:1000px){#ccm2027 .ccm-call-steps{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){#ccm2027 .ccm-call-grid,#ccm2027 .ccm-call-areas{grid-template-columns:1fr}#ccm2027 .ccm-call-steps{grid-template-columns:1fr}#ccm2027 .ccm-call-step{flex-direction:row}#ccm2027 .ccm-call-step>div{width:100%}#ccm2027 .ccm-call-step-number{flex-shrink:0}#ccm2027 .ccm-call-publication{grid-template-columns:1fr;gap:1rem}#ccm2027 .ccm-call-date-row{align-items:flex-start;flex-direction:column;gap:.35rem}#ccm2027 .ccm-call-date-row strong{text-align:left}#ccm2027 .ccm-call-unavailable{flex-wrap:wrap}}
+
 </style>
 <div id="ccm2027" lang="es">
   <!-- ================= Header ================= -->
@@ -2860,7 +2915,7 @@ body.admin-bar #ccm2027 .tab-nav { top: calc(var(--header-h) + var(--ccm-admin-o
           src="https://scm.org.co/web/wp-content/uploads/elementor/thumbs/Logo-SCM-PNG-r2qh1lzukhrwimfdnwfzwu6nqu76fo74jytgb9baps.png"
           alt="Logo SCM"
         />
-        Organizado por la Sociedad Colombiana de Matemáticas
+        Organizado por la Sociedad Colombiana de Matemáticas y la Universidad EAFIT
       </span>
 
     </div>
@@ -2887,81 +2942,30 @@ body.admin-bar #ccm2027 .tab-nav { top: calc(var(--header-h) + var(--ccm-admin-o
 
     <!-- ================= Inicio ================= -->
     <section class="tab-content active" id="tab-inicio-tab">
+  <div class="section-card intro-card">
+    <div class="section-heading-row"><div><span class="eyebrow">Bienvenida · Primer anuncio</span><h2 class="section-title">XXV Congreso Colombiano de Matemáticas</h2></div><div class="section-mark">XXV</div></div>
+    <p class="section-text">El <strong>Congreso Colombiano de Matemáticas</strong> es el evento que organiza cada dos años la <strong>Sociedad Colombiana de Matemáticas</strong> en asocio con instituciones académicas del país. Es el espacio en el que se reúne la comunidad matemática para intercambiar ideas, presentar avances recientes y generar procesos de colaboración académica.</p>
+    <p class="section-text">La <strong>versión 25</strong> se realizará en la <strong>Universidad EAFIT, Medellín, del 8 al 11 de junio de 2027</strong>. Contará con conferencistas destacados, sesiones semiplenarias por áreas, sesiones contribuidas, pósteres, minicursos y paneles de discusión.</p>
+    <div class="stats-grid"><div class="stat-card"><span class="stat-number">XXV</span><span class="stat-label">Edición</span></div><div class="stat-card"><span class="stat-number">EAFIT</span><span class="stat-label">Sede</span></div><div class="stat-card"><span class="stat-number">2027</span><span class="stat-label">Año del evento</span></div></div>
+  </div>
+  <div class="section-card"><span class="eyebrow">Agenda de convocatorias</span><h2 class="section-title">Fechas importantes</h2><p class="section-text">Consulta los plazos del primer anuncio del congreso.</p>
+    <div class="ccm-announcement-dates">
+      <div class="ccm-date-card"><span class="ccm-date-kicker">Inscripciones · primer corte</span><strong>20 de abril de 2027</strong><p>Último día para acceder a las tarifas del primer corte.</p></div>
+      <div class="ccm-date-card"><span class="ccm-date-kicker">Presentación de trabajos</span><strong>28 de febrero de 2027</strong><p>Fecha límite para el envío de propuestas.</p></div>
+      <div class="ccm-date-card"><span class="ccm-date-kicker">Premios SCM</span><strong>31 de marzo de 2027</strong><p>Fecha límite para nominaciones.</p></div>
+      <div class="ccm-date-card"><span class="ccm-date-kicker">Aceptación de trabajos</span><strong>10 de abril de 2027</strong><p>Comunicación de aceptación.</p></div>
+    </div>
+  </div>
+  <div class="section-card"><span class="eyebrow">Áreas de interés</span><h2 class="section-title">Ocho áreas para encontrarnos</h2><p class="section-text">Los trabajos se organizan en las siguientes áreas temáticas:</p>
+    <div class="tags-container thematic-tags"><span class="tag">1. Análisis y teoría de operadores</span><span class="tag">2. Álgebra, teoría de números, combinatoria y criptografía</span><span class="tag">3. Ecuaciones diferenciales y sistemas dinámicos</span><span class="tag">4. Educación matemática, divulgación matemática e historia</span><span class="tag">5. Geometría, topología y lógica</span><span class="tag">6. Matemática aplicada: optimización, física matemática y teoría de control</span><span class="tag">7. Probabilidad y estadística, ciencia de datos e inteligencia artificial</span><span class="tag">8. Análisis numérico y ciencias de la computación</span></div>
+  </div>
+  <div class="section-card"><span class="eyebrow">Reconocimientos de la SCM</span><h2 class="section-title">Convocatoria a premios</h2><p class="section-text">Las nominaciones estarán abiertas hasta el <strong>31 de marzo de 2027</strong>. Consulta los requisitos y procedimientos en la página de premios de la SCM.</p>
+    <div class="ccm-prize-grid"><div class="ccm-prize-card"><span>01</span><h3>Premio Nacional de Matemáticas</h3><a href="https://scm.org.co/web/sobre-la-scm/premios/" target="_blank" rel="noopener noreferrer">Consultar premio ↗</a></div><div class="ccm-prize-card"><span>02</span><h3>Premio José Celestino Mutis</h3><a href="https://scm.org.co/web/sobre-la-scm/premios/" target="_blank" rel="noopener noreferrer">Consultar premio ↗</a></div><div class="ccm-prize-card"><span>03</span><h3>Premio José Fernando Escobar</h3><a href="https://scm.org.co/web/sobre-la-scm/premios/" target="_blank" rel="noopener noreferrer">Consultar premio ↗</a></div></div>
+  </div>
+  <div class="section-card"><span class="eyebrow">Organización</span><h2 class="section-title">Instituciones organizadoras y de apoyo</h2><p class="section-text"><strong>Organizan:</strong> Sociedad Colombiana de Matemáticas y Universidad EAFIT.</p><p class="section-text"><strong>Con el apoyo de:</strong> Universidad Industrial de Santander, Universidad de los Andes, Universidad Nacional de Colombia, Universidad del Valle, Universidad del Cauca, Universidad del Norte, Universidad de Antioquia, Universidad Distrital, Universidad Pedagógica y Tecnológica de Colombia y Universidad Konrad Lorenz.</p></div>
+</section>
 
-      <div class="section-card intro-card">
-        <div class="section-heading-row">
-          <div>
-            <span class="eyebrow">Bienvenida</span>
-            <h2 class="section-title">
-              XXV Congreso Colombiano de Matemáticas
-            </h2>
-          </div>
-
-          <div class="section-mark">XXV</div>
-        </div>
-
-        <p class="section-text">
-          El <strong>Congreso Colombiano de Matemáticas</strong> es el evento que organiza cada dos años la
-          <strong>Sociedad Colombiana de Matemáticas</strong>, en asocio con instituciones académicas del país.
-          Este encuentro reúne a la comunidad matemática nacional con el propósito de intercambiar ideas, presentar
-          avances recientes en las distintas áreas de las matemáticas y promover procesos de colaboración académica
-          e investigativa.
-        </p>
-
-        <p class="section-text">
-          En esta oportunidad, la <strong>versión 25</strong> del Congreso se llevará a cabo en la ciudad de Medellín,
-          en la <strong>Universidad EAFIT</strong>, del <strong>8 al 11 de junio</strong> de 2027. El evento contará
-          con la participación de conferencistas destacados, sesiones semiplenarias en las áreas matemáticas establecidas,
-          sesiones contribuidas, sesiones de pósteres, minicursos y paneles de discusión.
-        </p>
-
-        <div class="stats-grid">
-          <div class="stat-card">
-            <span class="stat-number">XXV</span>
-            <span class="stat-label">Edición</span>
-          </div>
-
-          <div class="stat-card">
-            <span class="stat-number">EAFIT</span>
-            <span class="stat-label">Sede</span>
-          </div>
-
-          <div class="stat-card">
-            <span class="stat-number">2027</span>
-            <span class="stat-label">Año del evento</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="section-card">
-        <span class="eyebrow">Áreas de interés</span>
-
-        <h2 class="section-title">
-          Un encuentro para las distintas áreas de las matemáticas
-        </h2>
-
-        <p class="section-text">
-          El congreso convoca trabajos relacionados con investigación matemática, educación matemática,
-          matemáticas aplicadas, estadística, computación, modelación, divulgación y otras líneas afines,
-          integrando diversas áreas de interés de la comunidad matemática.
-        </p>
-
-        <div class="tags-container thematic-tags">
-          <span class="tag">1. Análisis y teoría de operadores</span>
-          <span class="tag">2. Álgebra, teoría de números, combinatoria y criptografía</span>
-          <span class="tag">3. Ecuaciones diferenciales y sistemas dinámicos</span>
-          <span class="tag">4. Educación matemática, divulgación matemática e historia</span>
-          <span class="tag">5. Geometría, topología y lógica</span>
-          <span class="tag">6. Matemática aplicada: optimización, física matemática y teoría de control</span>
-          <span class="tag">7. Probabilidad y estadística, ciencia de datos e inteligencia artificial</span>
-          <span class="tag">8. Análisis numérico y ciencias de la computación</span>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- ================= Registro ================= -->
-    <section class="tab-content" id="tab-registro">
+<section class="tab-content" id="tab-registro">
 
       <div class="section-card registration-section registration-coming-soon">
         <div class="registration-header">
@@ -3005,124 +3009,120 @@ body.admin-bar #ccm2027 .tab-nav { top: calc(var(--header-h) + var(--ccm-admin-o
 
     </section>
 
-    <!-- ================= Ponencias ================= -->
-    <section class="tab-content" id="tab-ponencias">
-
+    <!-- ================= Ponencias: flujo editorial inspirado en MAPI4 ================= -->
+    <section class="tab-content ccm-call" id="tab-ponencias">
       <div class="section-card">
-        <span class="eyebrow">Ponencias</span>
-
-        <h2 class="section-title">Presentación de trabajos</h2>
-
-        <p class="section-text">
-          En esta sección se publicará la información correspondiente al envío de ponencias,
-          fechas importantes, lineamientos de presentación, modalidades y criterios de aceptación.
-        </p>
-
-        <div class="feature-grid">
-          <div class="feature-card">
-            <div class="feature-icon">&#8721;</div>
-            <h4>Ponencias orales</h4>
-            <p>Espacios para la presentación de resultados de investigación y experiencias académicas.</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">&#960;</div>
-            <h4>Sesiones temáticas</h4>
-            <p>Encuentros especializados alrededor de áreas particulares de las matemáticas.</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">&#8734;</div>
-            <h4>Divulgación académica</h4>
-            <p>Presentaciones orientadas a compartir avances, reflexiones y experiencias significativas.</p>
-          </div>
-        </div>
+        <span class="eyebrow">Convocatoria académica · CCM 2027</span>
+        <h2 class="section-title">Envío de trabajos</h2>
+        <p class="section-text">La Sociedad Colombiana de Matemáticas y la Universidad EAFIT invitan a la comunidad matemática a presentar contribuciones de investigación y divulgación en el <strong>XXV Congreso Colombiano de Matemáticas</strong>, que tendrá lugar del <strong>8 al 11 de junio de 2027</strong> en Medellín.</p>
+        <p class="section-text">El congreso reunirá resultados originales o recientes, intercambios académicos y avances de las diferentes áreas de las matemáticas, mediante sesiones semiplenarias, contribuidas, de pósteres, minicursos y paneles de discusión.</p>
       </div>
 
-      <div class="section-card">
-        <span class="eyebrow">Próximamente</span>
-
-        <h2 class="section-title">Información para autores</h2>
-
-        <p class="section-text">
-          Próximamente se habilitarán las instrucciones para el envío de trabajos,
-          plantillas, fechas límite y demás orientaciones para los participantes.
-        </p>
-      </div>
-
-    </section>
-
-    <!-- ================= Costos ================= -->
-    <section class="tab-content" id="tab-costos">
-      <div class="section-card ccm-costos">
-        <span class="eyebrow">Inscripciones · CCM 2027</span>
-        <div class="section-heading-row">
-          <div>
-            <h2 class="section-title">Tarifas de inscripción</h2>
-            <p class="section-text">Consulta el valor de tu inscripción según tu categoría y la fecha en que realices el pago. Los valores están expresados en pesos colombianos (COP).</p>
-          </div>
-          <span class="section-mark" aria-hidden="true">$</span>
-        </div>
-
-        <div class="ccm-periodos" aria-label="Periodos de inscripción">
-          <div class="ccm-periodo ccm-periodo-first">
-            <span class="ccm-periodo-label">Primer corte</span>
-            <strong>1 de enero – 20 de abril de 2027</strong>
-            <span>Tarifas de inscripción anticipada</span>
-          </div>
-          <div class="ccm-periodo ccm-periodo-second">
-            <span class="ccm-periodo-label">Segundo corte</span>
-            <strong>Después del 20 de abril de 2027</strong>
-            <span>Tarifas de inscripción posteriores al primer corte</span>
-          </div>
-        </div>
-
-        <div class="ccm-cost-table-wrap" role="region" aria-label="Tabla comparativa de tarifas de inscripción" tabindex="0">
-          <table class="ccm-cost-table">
-            <thead><tr>
-              <th scope="col">Tipo de registro</th>
-              <th scope="col">Hasta el 20 de abril</th>
-              <th scope="col">Después del 20 de abril</th>
-            </tr></thead>
-            <tbody>
-              <tr class="ccm-group"><th colspan="3" scope="colgroup">Estudiantes</th></tr>
-              <tr><th scope="row">Estudiante + Suscripción Socio Adjunto con revistas físicas</th><td>$220.000</td><td>$280.000</td></tr>
-              <tr><th scope="row">Estudiante + Suscripción Socio Adjunto con revistas virtuales</th><td>$190.000</td><td>$250.000</td></tr>
-              <tr><th scope="row">Estudiante NO miembro de la SCM</th><td>$120.000</td><td>$180.000</td></tr>
-              <tr class="ccm-group"><th colspan="3" scope="colgroup">Profesionales, profesores y socios efectivos</th></tr>
-              <tr><th scope="row">Profesionales NO miembros de la SCM</th><td>$450.000</td><td>$510.000</td></tr>
-              <tr><th scope="row">Socios Efectivos SCM (si ya eres socio activo)</th><td>$220.000</td><td>$280.000</td></tr>
-              <tr><th scope="row">Profesional + Suscripción Socio Efectivo con revistas físicas</th><td>$500.000</td><td>$560.000</td></tr>
-              <tr><th scope="row">Profesional + Suscripción Socio Efectivo con revistas virtuales</th><td>$480.000</td><td>$540.000</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="ccm-cost-footnote">* Todos los valores están expresados en pesos colombianos (COP).</p>
-      </div>
-
-      <div class="section-card ccm-clarifications">
-        <span class="eyebrow">Información importante</span>
-        <h2 class="section-title">Aclaraciones sobre la inscripción</h2>
-        <p class="section-text">Antes de elegir una categoría, ten en cuenta las siguientes condiciones:</p>
-        <ol class="ccm-clarification-list">
-          <li>
-            <strong>Modalidades de suscripción a la SCM.</strong>
-            La SCM ofrecerá dos modalidades tanto para socios adjuntos (estudiantes) como para socios efectivos (profesionales y profesores):
+      <div class="ccm-call-grid">
+        <article class="section-card ccm-call-panel">
+          <div class="ccm-call-icon" aria-hidden="true">∑</div>
+          <span class="eyebrow">Convocatoria principal</span>
+          <h3>Resúmenes extendidos</h3>
+          <p>Se recibirán trabajos con resultados originales o recientes en las áreas temáticas del congreso.</p>
+          <div class="ccm-call-highlight">
+            <strong>Formato del manuscrito</strong>
             <ul>
-              <li><strong>Con revistas virtuales:</strong> formarás parte de la SCM y recibirás en formato digital todo el material que la Sociedad distribuye a sus socios.</li>
-              <li><strong>Con revistas físicas:</strong> formarás parte de la SCM y recibirás en papel todo el material que la Sociedad distribuye a sus socios.</li>
+              <li><strong>Extensión:</strong> de 3 a 6 páginas.</li>
+              <li><strong>Idioma:</strong> inglés.</li>
+              <li><strong>Contenido:</strong> introducción, resultados principales y referencias.</li>
+              <li><strong>Preparación:</strong> plantilla oficial en LaTeX.</li>
             </ul>
-          </li>
-          <li><strong>Estudiantes:</strong> si eres estudiante activo de pregrado o posgrado, tienes tres opciones de registro. Dos de ellas te permitirán ser <strong>Socio Adjunto de la SCM</strong>.</li>
-          <li><strong>Profesionales y profesores:</strong> tienes tres opciones de registro para esta condición, dos de ellas te permitirán ser <strong>Socio Efectivo de la SCM</strong>. Si ya eres socio efectivo activo, cuentas también con la tarifa correspondiente a socios.</li>
-          <li><strong>Modalidad del congreso:</strong> el Congreso Colombiano de Matemáticas es <strong>completamente presencial</strong>. No habrá sesiones híbridas ni completamente virtuales.</li>
-          <li><strong>Pagos bancarios:</strong> si realizas el pago en una entidad bancaria en lugar de utilizar los botones de PayU, es necesario enviar el comprobante de pago a <a href="mailto:scm@scm.org.co">scm@scm.org.co</a> para que tu pago quede debidamente registrado en la conferencia.</li>
-        </ol>
+          </div>
+          <div class="ccm-call-actions">
+            <div class="ccm-call-unavailable"><span>Plantilla LaTeX del CCM 2027</span><strong>Próximamente</strong></div>
+            <div class="ccm-call-unavailable"><span>Plataforma de envío Springer del CCM 2027</span><strong>Próximamente</strong></div>
+           <!-- <a class="ccm-call-textlink" href="https://scm.org.co/web/wp-content/uploads/2025/11/Help-Guide-for-Author.pdf" target="_blank" rel="noopener noreferrer">Consultar guía general de autores (PDF) ↗</a>-->
+          </div>
+          <p class="ccm-call-note">Los enlaces definitivos de plantilla y envío para CCM 2027 se incorporarán cuando la organización los habilite.</p>
+        </article>
+
+        <article class="section-card ccm-call-panel">
+          <div class="ccm-call-icon" aria-hidden="true">π</div>
+          <span class="eyebrow">Participación académica</span>
+          <h3>Sesiones y modalidades</h3>
+          <p>El congreso contará con distintas modalidades para presentar resultados e intercambiar conocimiento.</p>
+          <div class="ccm-call-highlight">
+            <strong>Espacios previstos</strong>
+            <ul>
+              <li>Sesiones semiplenarias por áreas de las matemáticas.</li>
+              <li>Sesiones contribuidas y presentación de pósteres.</li>
+              <li>Minicursos y paneles de discusión.</li>
+            </ul>
+          </div>
+          <p>Las instrucciones particulares para cada modalidad y los canales para presentar propuestas se anunciarán mediante la información oficial del congreso.</p>
+          <div class="ccm-call-unavailable ccm-call-modality"><span>Formularios específicos de participación</span><strong>Pendientes de publicación</strong></div>
+        </article>
       </div>
+
+      <div class="section-card ccm-call-dates">
+        <span class="eyebrow">Calendario de la convocatoria</span>
+        <h2 class="section-title">Fechas importantes</h2>
+        <div class="ccm-call-date-row"><span>Fecha límite de envío de trabajos</span><strong>28 de febrero de 2027</strong></div>
+        <div class="ccm-call-date-row"><span>Comunicación de aceptación</span><strong>10 de abril de 2027</strong></div>
+        <div class="ccm-call-date-row"><span>XXV Congreso Colombiano de Matemáticas</span><strong>8 al 11 de junio de 2027</strong></div>
+      </div>
+
+      
+      <div class="section-card">
+        <span class="eyebrow">Guía para autores</span>
+        <h2 class="section-title">Proceso de envío</h2>
+        <div class="ccm-call-steps">
+          <div class="ccm-call-step"><span class="ccm-call-step-number">01</span><div><h3>Prepare su resumen</h3><p>Redacte el manuscrito de 3 a 6 páginas en inglés, con introducción, resultados y referencias, usando la plantilla LaTeX que será proporcionada.</p></div></div>
+          <div class="ccm-call-step"><span class="ccm-call-step-number">02</span><div><h3>Envíe su trabajo</h3><p>Complete el envío antes del <strong>28 de febrero de 2027</strong> por el canal oficial del CCM 2027, una vez se anuncie.</p></div></div>
+          <div class="ccm-call-step"><span class="ccm-call-step-number">03</span><div><h3>Evaluación académica</h3><p>El trabajo será revisado conforme a los criterios y procedimientos que informe la organización.</p></div></div>
+          <div class="ccm-call-step"><span class="ccm-call-step-number">04</span><div><h3>Notificación</h3><p>La comunicación de aceptación de trabajos está prevista para el <strong>10 de abril de 2027</strong>.</p></div></div>
+          <div class="ccm-call-step"><span class="ccm-call-step-number">05</span><div><h3>Presentación y proceso editorial</h3><p>Los trabajos seleccionados participarán en las actividades del congreso según su modalidad. Los pasos de publicación con Springer dependerán de las condiciones editoriales que se anuncien.</p></div></div>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <span class="eyebrow">Clasificación académica</span>
+        <h2 class="section-title">Áreas temáticas</h2>
+        <p class="section-text">Las contribuciones se organizarán dentro de las ocho áreas establecidas para el XXV Congreso Colombiano de Matemáticas.</p>
+        <div class="ccm-call-areas">
+          <div><span>01</span>Análisis y teoría de operadores</div>
+          <div><span>02</span>Álgebra, teoría de números, combinatoria y criptografía</div>
+          <div><span>03</span>Ecuaciones diferenciales y sistemas dinámicos</div>
+          <div><span>04</span>Educación matemática, divulgación matemática e historia</div>
+          <div><span>05</span>Geometría, topología y lógica</div>
+          <div><span>06</span>Matemática aplicada: optimización, física matemática y teoría de control</div>
+          <div><span>07</span>Probabilidad y estadística, ciencia de datos e inteligencia artificial</div>
+          <div><span>08</span>Análisis numérico y ciencias de la computación</div>
+        </div>
+      </div>
+      <div class="ccm-call-closing">Un espacio para presentar nuevas ideas, compartir resultados y fortalecer la colaboración de la comunidad matemática nacional e internacional.</div>
     </section>
 
-    <!-- ================= Información ================= -->
-    <section class="tab-content" id="tab-informacion">
+<section class="tab-content" id="tab-costos">
+<div class="section-card ccm-costos"><span class="eyebrow">Inscripciones · CCM 2027</span><div class="section-heading-row"><div><h2 class="section-title">Tarifas de inscripción</h2><p class="section-text">Valores en pesos colombianos (COP), de acuerdo con la categoría y el periodo de inscripción.</p></div><span aria-hidden="true" class="section-mark">$</span></div>
+<div aria-label="Periodos de inscripción" class="ccm-periodos"><div class="ccm-periodo ccm-periodo-first"><span class="ccm-periodo-label">Primer corte</span><strong>1 de enero – 20 de abril de 2027</strong><span>Inscripción anticipada</span></div><div class="ccm-periodo ccm-periodo-second"><span class="ccm-periodo-label">Segundo corte</span><strong>Después del 20 de abril de 2027</strong><span>Tarifa posterior al primer corte</span></div></div>
+<div aria-label="Tabla de tarifas" class="ccm-cost-table-wrap" role="region" tabindex="0"><table class="ccm-cost-table"><thead><tr><th scope="col">Tipo de registro</th><th scope="col">Hasta el 20 de abril</th><th scope="col">Después del 20 de abril</th></tr></thead><tbody>
+<tr class="ccm-group"><th colspan="3" scope="colgroup">Estudiantes y profesores de educación básica y media</th></tr>
+<tr><th scope="row">Estudiantes o profesores de educación básica y media + suscripción Socio Adjunto con revistas físicas</th><td>$300.000</td><td>$340.000</td></tr>
+<tr><th scope="row">Estudiantes o profesores de educación básica y media + suscripción Socio Adjunto con revistas virtuales</th><td>$250.000</td><td>$290.000</td></tr>
+<tr><th scope="row">Estudiantes o profesores de educación básica y media sin pagar afiliación a la SCM</th><td>$120.000</td><td>$160.000</td></tr>
+<tr class="ccm-group"><th colspan="3" scope="colgroup">Profesionales y socios SCM</th></tr>
+<tr><th scope="row">Profesionales NO miembros de la SCM</th><td>$450.000</td><td>$490.000</td></tr>
+<tr><th scope="row">Socios Efectivos SCM</th><td>$220.000</td><td>$260.000</td></tr>
+<tr><th scope="row">Socios Adjuntos SCM</th><td>$100.000</td><td>$140.000</td></tr>
+<tr><th scope="row">Profesionales + suscripción Socio Efectivo con revistas físicas</th><td>$500.000</td><td>$540.000</td></tr>
+<tr><th scope="row">Profesionales + suscripción Socio Efectivo con revistas virtuales</th><td>$400.000</td><td>$440.000</td></tr>
+</tbody></table></div><p class="ccm-cost-footnote">* Tarifas expresadas en pesos colombianos (COP). La opción de inscripción en línea permanecerá oculta hasta la habilitación del enlace oficial de pago.</p></div>
+<div class="section-card ccm-clarifications"><span class="eyebrow">Información importante</span><h2 class="section-title">Aclaraciones sobre la inscripción</h2><p class="section-text">Ten en cuenta las condiciones asociadas a las categorías y suscripciones.</p><ol class="ccm-clarification-list">
+<li><strong>Modalidades de suscripción SCM.</strong> Tanto los socios adjuntos como los socios efectivos pueden optar por revistas virtuales (material distribuido digitalmente) o revistas físicas (material distribuido en papel).</li>
+<li><strong>Estudiantes y profesores de educación básica y media.</strong> Se ofrecen tres opciones de registro: dos incorporan suscripción como Socio Adjunto y una corresponde a inscripción sin afiliación a la SCM.</li>
+<li><strong>Profesionales.</strong> Pueden inscribirse como no miembros o mediante suscripción a Socio Efectivo con revistas físicas o virtuales. Los socios activos cuentan con categorías específicas según corresponda.</li>
+<li><strong>Modalidad del evento.</strong> El Congreso será <strong>completamente presencial</strong>; no se ofrecerán sesiones virtuales ni híbridas.</li>
+<li><strong>Consignaciones o transferencias bancarias.</strong> Si el pago se hace por una entidad bancaria y no mediante PayU, envía el comprobante a <a href="mailto:scm@scm.org.co">scm@scm.org.co</a> para su registro.</li>
+</ol></div>
+</section>
+
+<section class="tab-content" id="tab-informacion">
 
       <!-- Sede -->
       <div class="section-card venue-detail-section">
@@ -3833,7 +3833,7 @@ body.admin-bar #ccm2027 .tab-nav { top: calc(var(--header-h) + var(--ccm-admin-o
         />
         <div class="logo-text">
           <div class="footer-title">Sociedad Colombiana de Matemáticas</div>
-          <div class="footer-subtitle">Organizador oficial del congreso</div>
+          <div class="footer-subtitle">Organizan la SCM y la Universidad EAFIT</div>
         </div>
       </div>
 
